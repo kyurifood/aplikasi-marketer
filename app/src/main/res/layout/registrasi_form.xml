@@ -12,7 +12,7 @@
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spin-regional" />
+        android:id="@+id/spinregional" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,7 +23,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edit-kode" />
+        android:id="@+id/editkode" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edit-nama" />
+        android:id="@+id/editnama" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/edit-email" />
+        android:id="@+id/editemail" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:inputType="phone"
         android:ems="10"
-        android:id="@+id/edit-hp" />
+        android:id="@+id/edithp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -71,7 +71,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edit-wa" />
+        android:id="@+id/editwa" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -82,7 +82,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edit-bb" />
+        android:id="@+id/editbb" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -95,7 +95,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPostalAddress"
         android:ems="10"
-        android:id="@+id/edit-alamat" />
+        android:id="@+id/editalamat" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -106,7 +106,7 @@
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spin-prov" />
+        android:id="@+id/spinprov" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -117,7 +117,7 @@
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spin-kec" />
+        android:id="@+id/spinkec" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -128,7 +128,7 @@
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spin-kel" />
+        android:id="@+id/spinkel" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -139,7 +139,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edit-kodepos" />
+        android:id="@+id/editkodepos" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -152,26 +152,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="+"
-        android:id="@+id/btn-bank" />
+        android:id="@+id/btnbank" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hasil pemasukan nomor rekening"
-        android:id="@+id/hasil-bank" />
+        android:id="@+id/hasilbank" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="X"
-        android:id="@+id/btn-hps-bank" />
+        android:id="@+id/hpsbank" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="DAFTAR"
-        android:id="@+id/btn-ok"
+        android:id="@+id/btnok"
         android:layout_gravity="center_horizontal" />
 
 
