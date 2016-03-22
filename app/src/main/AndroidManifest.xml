@@ -8,6 +8,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
+        <activity android:name=".EditdataPribadi" />
 
         <activity android:name=".HomeScreen" >
             <intent-filter>
@@ -19,6 +20,8 @@
 
         <activity android:name=".Pengaturan" />
         <activity android:name=".Tambah_bank" />
+
+
 
     </application>
 
