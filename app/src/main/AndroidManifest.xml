@@ -10,6 +10,7 @@
         android:theme="@style/AppTheme" >
         <activity android:name=".EditdataPribadi" />
 
+
         <activity android:name=".HomeScreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,7 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".RegistrasiMarketer" />
         <activity android:name=".Pengaturan" />
         <activity android:name=".Tambah_bank" />
 
