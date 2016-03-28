@@ -34,27 +34,39 @@ public class Entry_Order2 extends Activity {
 
         //untuk membuat list provinsi/kabupaten
         List<String> item = new ArrayList<String>();
-        item.add("Pilih...");
+        item.add("---Pilih Kota---");
         item.add("Gorontalo");
         item.add("Palu");
         item.add("Manado");
         item.add("Makassar");
+        item.add("Jakarta");
+        item.add("Surabaya");
+        item.add("Bali");
+        item.add("Ambon");
 
         //untuk membuat list kecamatan
         List<String> item2 = new ArrayList<String>();
-        item2.add("Pilih...");
-        item2.add("Limboto");
-        item2.add("Telaga Biru");
-        item2.add("Botupingge");
-        item2.add("Suwawa");
+        item2.add("---Pilih Kecamatan---");
+        item2.add("Kecamatan 1");
+        item2.add("Kecamatan 2");
+        item2.add("Kecamatan 3");
+        item2.add("Kecamatan 4");
+        item2.add("Kecamatan 5");
+        item2.add("Kecamatan 6");
+        item2.add("Kecamatan 7");
+        item2.add("Kecamatan 8");
 
         //untuk membuat list kelurahan
         List<String> item3 = new ArrayList<String>();
-        item3.add("Pilih...");
-        item3.add("Hutuo");
-        item3.add("Dutulanaa");
-        item3.add("Hepuhulawa");
-        item3.add("Dehuwalolo");
+        item3.add("---Pilih Kelurahan---");
+        item3.add("Kelurahan 1");
+        item3.add("Kelurahan 2");
+        item3.add("Kelurahan 3");
+        item3.add("Kelurahan 4");
+        item3.add("Kelurahan 5");
+        item3.add("Kelurahan 6");
+        item3.add("Kelurahan 7");
+        item3.add("Kelurahan 8");
 
         //untuk membuat list bank
         List<String> item4 = new ArrayList<String>();
