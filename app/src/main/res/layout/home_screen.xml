@@ -45,6 +45,7 @@
                 android:layout_height="match_parent"
                 android:text="|Laporan"
                 android:id="@+id/laporan"
+                android:onClick="btn_laporan"
                 android:drawableLeft="@drawable/ic_laporan"
                 android:layout_gravity="center_horizontal" />
             <Button
@@ -59,6 +60,7 @@
                 android:layout_height="match_parent"
                 android:text="|Pengaturan"
                 android:id="@+id/pengaturan"
+                android:onClick="btn_pengaturan"
                 android:drawableLeft="@drawable/ic_pengaturan"
                 android:layout_gravity="center_horizontal" />
 

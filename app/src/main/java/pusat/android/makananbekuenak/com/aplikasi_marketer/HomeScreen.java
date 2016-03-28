@@ -14,14 +14,24 @@ public class HomeScreen extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
-        Button pengaturan = (Button) findViewById(R.id.pengaturan);
-        pengaturan.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Pengaturan.class);
-                startActivity(intent);
-            }
-        });
 
+
+
+
+    }
+
+    //--Pengaturan--
+    public void btn_pengaturan(View v) {
+
+        Intent panggil_class = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_marketer.Pengaturan.class);
+        startActivity(panggil_class);
+    }
+
+    //--Laporan--
+    public void btn_laporan(View v) {
+
+        Intent panggil_class = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_marketer.Laporan.class);
+        startActivity(panggil_class);
     }
 
 }

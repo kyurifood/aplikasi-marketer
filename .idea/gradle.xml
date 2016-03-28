@@ -3,25 +3,9 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-<<<<<<< HEAD
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8" />
-=======
-<<<<<<< HEAD
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-=======
-<<<<<<< HEAD
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-=======
-        <option name="distributionType" value="LOCAL" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8" />
->>>>>>> 6dd19a04216c82b52d07f384c21916fe1a418dcd
->>>>>>> 8925f46f4c8589ad97216d32762a89eb42687a6d
->>>>>>> 3c09f804e09c3b68953860350d0dbd03a0479d2c
         <option name="gradleJvm" value="1.7" />
         <option name="modules">
           <set>
