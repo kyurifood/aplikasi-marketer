@@ -15,9 +15,18 @@ public class HomeScreen extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
         Button pengaturan = (Button) findViewById(R.id.pengaturan);
+        Button pesananan = (Button) findViewById(R.id.pesanan);
+
         pengaturan.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Pengaturan.class);
+                startActivity(intent);
+            }
+        });
+
+        pesananan.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Entry_Order.class);
                 startActivity(intent);
             }
         });

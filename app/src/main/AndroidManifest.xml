@@ -21,6 +21,9 @@
         <activity android:name=".RegistrasiMarketer" />
         <activity android:name=".Pengaturan" />
         <activity android:name=".Tambah_bank" />
+        <activity android:name=".Entry_Order" />
+        <activity android:name=".Entry_Order2" />
+        <activity android:name=".Entry_Order3" />
 
 
 
