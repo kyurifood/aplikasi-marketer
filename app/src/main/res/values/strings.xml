@@ -2,29 +2,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="app_name">aplikasi-marketer</string>
     <string name="action_settings">Settings</string>
-    <string name="hello">Hello World, form_activity!</string>
-    <string name="formTitle">Edit Info Pribadi</string>
-    <string name="namaTitle">Nama</string>
-    <string name="EmailTitle">Email</string>
-    <string name="NoHp">No Hp</string>
-    <string name="Whatsapp">Whatsapp</string>
-    <string name="PinBbm">Pin Bbm</string>
-    <string name="alamatTitle">Alamat</string>
-    <string name="KodePost">Kode Post</string>
 
-    <string name="SubmitTitle">Submit</string>
-    <string name="CancelTitle">Cancel</string>
-
-    <string name="JK1">Pilih Rekening Bank</string>
-    <string name="JK2">BRI</string>
-    <string name="JK3">Danamon</string>
-    <string name="JK4">Muamalad</string>
-    <string-array name="JKlist">
-        <item>@string/JK1</item>
-        <item>@string/JK2</item>
-        <item>@string/JK3</item>
-        <item>@string/JK4</item>
-    </string-array>
 
     <string name="pk1">Pilih Regional</string>
     <string name="pk2">Sulawesi</string>
@@ -36,6 +14,7 @@
         <item>@string/pk3</item>
         <item>@string/pk4</item>
     </string-array>
+
 
     <string name="bk1">Pilih Provinsi/Kabupaten</string>
     <string name="bk2">DKI Jakarta</string>
@@ -71,4 +50,6 @@
     </string-array>
 
 
+=======
+>>>>>>> c44cd6e349136b132abc857fef4bf0706267446d
 </resources>

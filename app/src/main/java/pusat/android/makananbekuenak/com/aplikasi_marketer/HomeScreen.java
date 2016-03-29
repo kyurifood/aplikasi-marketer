@@ -18,6 +18,7 @@ public class HomeScreen extends AppCompatActivity{
         setContentView(R.layout.home_screen);
 
 
+
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
 
@@ -58,6 +59,7 @@ public class HomeScreen extends AppCompatActivity{
 
         Intent panggil_class = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_marketer.Laporan.class);
         startActivity(panggil_class);
+
         Button pengaturan = (Button) findViewById(R.id.pengaturan);
         Button pesananan = (Button) findViewById(R.id.pesanan);
 
@@ -74,7 +76,6 @@ public class HomeScreen extends AppCompatActivity{
                 startActivity(intent);
             }
         });
-
     }
 
 }
