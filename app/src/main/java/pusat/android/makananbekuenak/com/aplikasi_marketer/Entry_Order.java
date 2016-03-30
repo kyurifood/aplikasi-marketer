@@ -24,7 +24,7 @@ public class Entry_Order extends Activity {
         sp = (Spinner)
                 findViewById(R.id.spinner);
 
-        cart = (Button)findViewById(R.id.btn_cart);
+        cart = (Button)findViewById(R.id.btn_ok);
 
 
         //untuk membuat list regional
