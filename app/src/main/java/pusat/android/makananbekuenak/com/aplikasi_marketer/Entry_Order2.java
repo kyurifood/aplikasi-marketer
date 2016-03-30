@@ -20,17 +20,18 @@ public class Entry_Order2 extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.entry_order_2);
+        setContentView(R.layout.entry_order_2_2);
         prov = (Spinner)
-                findViewById(R.id.spinner2);
+                findViewById(R.id.spin_prov);
         kec = (Spinner)
-                findViewById(R.id.spinner3);
+                findViewById(R.id.spin_kec);
         kel = (Spinner)
-                findViewById(R.id.spinner4);
+                findViewById(R.id.spin_kel);
         bank = (Spinner)
-                findViewById(R.id.spinner5);
+                findViewById(R.id.spin_bank);
 
-        proses = (Button)findViewById(R.id.btn_proses);
+        proses = (Button)
+                findViewById(R.id.btn_proses);
 
         //untuk membuat list provinsi/kabupaten
         List<String> item = new ArrayList<String>();
@@ -110,11 +111,13 @@ public class Entry_Order2 extends Activity {
         kel.setAdapter(adapter3);
         bank.setAdapter(adapter4);
 
+        //button proses
         proses.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Entry_Order3.class);
                 startActivity(intent);
             }
         });
+
     }
 }
