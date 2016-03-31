@@ -1,104 +1,101 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <CheckBox
-        android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/checkBox4"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:checked="false" />
+        android:orientation="horizontal">
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Rp."
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="0"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Cancel"
+            android:layout_weight="1"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="hapus"
-        android:id="@+id/button8"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/checkBox4"
-        android:layout_toStartOf="@+id/checkBox4"
-        android:layout_alignBottom="@+id/checkBox4" />
+        android:orientation="vertical"
+        android:layout_weight="0.30">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Rp. XXX"
-        android:id="@+id/textView19"
-        android:layout_alignBottom="@+id/button8"
-        android:layout_centerHorizontal="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daftar Belanja"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Daftar Belanja"
-        android:id="@+id/textView20"
-        android:layout_marginTop="36dp"
-        android:layout_below="@+id/textView19"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="hapus"
-        android:id="@+id/button_hapus_belanja"
-        android:layout_above="@+id/textView22"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="clear"
+                android:layout_weight="1"/>
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Edit"
-        android:id="@+id/button_edit_belanja"
-        android:layout_above="@+id/textView22"
-        android:layout_toRightOf="@+id/button_hapus_belanja"
-        android:layout_toEndOf="@+id/button_hapus_belanja" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="edit"
+                android:layout_weight="1"
+                android:id="@+id/btn_edit_belanja" />
+        </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Data pembeli"
-        android:id="@+id/textView21"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data Pembeli"
+            android:divider="@android:color/holo_green_dark"/>
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hapus"
-        android:id="@+id/button_hapus_pembeli"
-        android:layout_marginTop="94dp"
-        android:layout_below="@+id/textView21"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="-----------------------------------------------------------------------------------------------"
-        android:id="@+id/textView22"
-        android:layout_above="@+id/textView21"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="clear"
+                android:layout_weight="1"/>
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Edit"
-        android:id="@+id/button_edit_pembeli"
-        android:layout_alignTop="@+id/button_hapus_pembeli"
-        android:layout_toRightOf="@+id/button_hapus_pembeli"
-        android:layout_toEndOf="@+id/button_hapus_pembeli" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="edit"
+                android:layout_weight="1"
+                android:id="@+id/btn_edit_pembeli" />
+        </LinearLayout>
 
-</RelativeLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="proses"
+            android:id="@+id/btn_proses" />
+
+    </LinearLayout>
+
+</LinearLayout>
