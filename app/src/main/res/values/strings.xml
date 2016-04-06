@@ -50,6 +50,14 @@
     </string-array>
 
 
-=======
->>>>>>> c44cd6e349136b132abc857fef4bf0706267446d
+    <string name="JK1">Pilih Rekening Bank</string>
+    <string name="JK2">BRI</string>
+    <string name="JK3">Danamon</string>
+    <string name="JK4">Muamalad</string>
+    <string-array name="JKlist">
+        <item>@string/JK1</item>
+        <item>@string/JK2</item>
+        <item>@string/JK3</item>
+        <item>@string/JK4</item>
+    </string-array>
 </resources>

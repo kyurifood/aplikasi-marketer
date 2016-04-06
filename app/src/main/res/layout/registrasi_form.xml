@@ -148,30 +148,20 @@
         android:id="@+id/textView2" />
 
     <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/RedButton"
         android:text="+"
         android:id="@+id/btnbank" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hasil pemasukan nomor rekening"
-        android:id="@+id/hasilbank" />
+
+    <ListView style="@style/LayoutMatchParent"
+        android:dividerHeight="@dimen/component_padding_margin"
+        android:divider="@android:color/transparent"
+        android:id="@+id/lv_item" />
 
     <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="X"
-        android:id="@+id/hpsbank" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/GreenButton"
         android:text="DAFTAR"
-        android:id="@+id/btnok"
+        android:id="@+id/btndaf"
         android:layout_gravity="center_horizontal" />
 
 
