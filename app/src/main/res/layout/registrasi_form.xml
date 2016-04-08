@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrasiMarketer">
 
     <TextView
         android:layout_width="wrap_content"
@@ -12,6 +15,8 @@
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:prompt="@string/pk1"
+        android:entries="@array/pklist"
         android:id="@+id/spinregional" />
 
     <TextView
@@ -23,6 +28,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="text"
         android:id="@+id/editkode" />
 
     <TextView
@@ -34,6 +40,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="text"
         android:id="@+id/editnama" />
 
     <TextView
@@ -71,6 +78,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:id="@+id/editwa" />
 
     <TextView
@@ -82,6 +90,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="text"
         android:id="@+id/editbb" />
 
     <TextView
@@ -94,7 +103,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPostalAddress"
-        android:ems="10"
+        android:ems="30"
         android:id="@+id/editalamat" />
 
     <TextView
@@ -105,6 +114,7 @@
 
     <Spinner
         android:layout_width="match_parent"
+        android:entries="@array/bklist"
         android:layout_height="wrap_content"
         android:id="@+id/spinprov" />
 
@@ -116,6 +126,7 @@
 
     <Spinner
         android:layout_width="match_parent"
+        android:entries="@array/wklist"
         android:layout_height="wrap_content"
         android:id="@+id/spinkec" />
 
@@ -127,6 +138,7 @@
 
     <Spinner
         android:layout_width="match_parent"
+        android:entries="@array/cklist"
         android:layout_height="wrap_content"
         android:id="@+id/spinkel" />
 
@@ -139,6 +151,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:id="@+id/editkodepos" />
 
     <TextView
@@ -148,31 +161,26 @@
         android:id="@+id/textView2" />
 
     <Button
-        style="?android:attr/buttonStyleSmall"
+        style="@style/RedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="+"
         android:id="@+id/btnbank" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hasil pemasukan nomor rekening"
-        android:id="@+id/hasilbank" />
+    <ListView style="@style/LayoutMatchParent"
+        android:dividerHeight="@dimen/component_padding_margin"
+        android:divider="@android:color/transparent"
+        android:id="@+id/lv_item" />
+
 
     <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="X"
-        android:id="@+id/hpsbank" />
-
-    <Button
+        style="@style/GreenButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="DAFTAR"
-        android:id="@+id/btnok"
+        android:id="@+id/btndaf"
         android:layout_gravity="center_horizontal" />
+
 
 
 </LinearLayout>

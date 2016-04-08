@@ -120,13 +120,6 @@ public class EditdataPribadi extends AppCompatActivity {
 
         });
 
-        btnbank.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), pusat.android.makananbekuenak.com.aplikasi_marketer.Tambah_bank.class);
-                startActivity(intent);
-            }
-        });
-
     }
 
     protected void onActivityResult (int requestCode, int resultCode, Intent data){
