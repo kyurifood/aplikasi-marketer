@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/spinnerbank"
                 android:prompt="@string/pk1"
-                android:entries="@array/JKlist"
+                android:entries="@array/pklist"
                 android:layout_below="@+id/textView8"/>
 
             <TextView
