@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="194dp"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Kode"
+            android:id="@+id/kode" />
+
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="NAMA"
+            android:id="@+id/nama" />
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="E-MAIL"
+            android:id="@+id/e-mail" />
+
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="NO-HP"
+            android:id="@+id/no-hp" />
+
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="WHATSAPP"
+            android:id="@+id/whatsapp" />
+
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="PIN BBM"
+            android:id="@+id/pin_bbm" />
+
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="REGIONAL"
+            android:id="@+id/regiyonal" />
+
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="ALAMAT"
+            android:id="@+id/alamata" />
+
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="PROVINSI"
+            android:id="@+id/provinsi" />
+
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="KECAMATAN"
+            android:id="@+id/kecamatan" />
+
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="KELURAHAN"
+            android:id="@+id/kelurahan" />
+
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="KODE POST"
+            android:id="@+id/kodepos" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="192dp"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:gravity="left"
+            android:id="@+id/textView01"/>
+
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:gravity="left"
+            android:id="@+id/textView02"/>
+
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:gravity="left"
+            android:id="@+id/textView03"/>
+
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:gravity="left"
+            android:id="@+id/textView04"/>
+
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:gravity="left"
+            android:id="@+id/textView05"/>
+
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:gravity="left"
+            android:id="@+id/textView06"/>
+
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:gravity="left"
+            android:id="@+id/textView07"/>
+
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:gravity="left"
+            android:id="@+id/textView08"/>
+
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:gravity="left"
+            android:id="@+id/textView09"/>
+
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:gravity="left"
+            android:id="@+id/textView011"/>
+
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:gravity="left"
+            android:id="@+id/textView012"/>
+
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:gravity="left"
+            android:id="@+id/textView013"/>
+    </LinearLayout>
+</LinearLayout>
+
+    <Button
+        style="@style/GreenButton"
+        android:layout_height="wrap_content"
+        android:id="@+id/daftar"
+        android:onClick="Edit Data Pribadi"
+        android:layout_width="wrap_content"
+        android:text="Edit Data Pribadi">
+    </Button>
+
+</LinearLayout>
