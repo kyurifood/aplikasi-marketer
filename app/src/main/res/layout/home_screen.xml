@@ -31,6 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textSize="20dp"
+            android:onClick="btn_pesanan"
             android:text="|Pesanan"
             android:id="@+id/pesanan"
             android:drawableLeft="@drawable/ic_pesanan"
