@@ -49,7 +49,7 @@
         <activity android:name=".Entry_Order" />
         <activity android:name=".Entry_Order2" />
         <activity android:name=".Entry_Order3" />
-
+        <activity android:name=".MainActivity" />
         <activity android:name=".Pesanan"
             android:label="Pesanan"
             android:configChanges="orientation|screenSize"
