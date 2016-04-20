@@ -10,7 +10,7 @@
         android:theme="@style/AppTheme" >
         <activity android:name=".HomeScreen" />
         <activity
-            android:name=".EditdataPribadi"
+            android:name=".RegistrasiMarketer"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +23,7 @@
         <activity
             android:name="pusat.android.makananbekuenak.com.aplikasi_marketer.SignupActivity"
             android:theme="@style/AppTheme.Dark" />
-        <activity android:name=".RegistrasiMarketer" />
+        <activity android:name=".Entry_Order" />
         <activity android:name=".Pengaturan"
             android:label="Pengaturan"
             android:configChanges="orientation|screenSize"
@@ -46,7 +46,7 @@
             <!-- END Coding Kembali Ke Menu Utama-->
         </activity>
 
-        <activity android:name=".Entry_Order" />
+
         <activity android:name=".Entry_Order2" />
         <activity android:name=".Entry_Order3" />
 

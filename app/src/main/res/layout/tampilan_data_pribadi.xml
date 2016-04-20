@@ -17,6 +17,7 @@
 
 
         <TextView
+            android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -24,26 +25,30 @@
             android:id="@+id/kode" />
 
         <TextView
+            android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="NAMA"
             android:id="@+id/nama" />
         <TextView
+            android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="E-MAIL"
-            android:id="@+id/e-mail" />
+            android:id="@+id/email" />
 
         <TextView
+            android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="NO-HP"
-            android:id="@+id/no-hp" />
+            android:id="@+id/nohp" />
 
         <TextView
+            android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -51,6 +56,7 @@
             android:id="@+id/whatsapp" />
 
         <TextView
+            android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -58,6 +64,7 @@
             android:id="@+id/pin_bbm" />
 
         <TextView
+            android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -65,6 +72,7 @@
             android:id="@+id/regiyonal" />
 
         <TextView
+            android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -72,6 +80,7 @@
             android:id="@+id/alamata" />
 
         <TextView
+            android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -79,6 +88,7 @@
             android:id="@+id/provinsi" />
 
         <TextView
+            android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -86,6 +96,7 @@
             android:id="@+id/kecamatan" />
 
         <TextView
+            android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -93,6 +104,7 @@
             android:id="@+id/kelurahan" />
 
         <TextView
+            android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -109,98 +121,110 @@
 
 
         <TextView
+            android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
+            android:text=""
             android:gravity="left"
             android:id="@+id/textView01"/>
 
         <TextView
+            android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
+            android:text=""
             android:gravity="left"
             android:id="@+id/textView02"/>
 
         <TextView
+            android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
+            android:text=""
             android:gravity="left"
             android:id="@+id/textView03"/>
 
         <TextView
+            android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
+            android:text=""
             android:gravity="left"
             android:id="@+id/textView04"/>
 
         <TextView
+            android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
+            android:text=""
             android:gravity="left"
             android:id="@+id/textView05"/>
 
         <TextView
+            android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
+            android:text=""
             android:gravity="left"
             android:id="@+id/textView06"/>
 
         <TextView
+            android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
+            android:text=""
             android:gravity="left"
             android:id="@+id/textView07"/>
 
         <TextView
+            android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
+            android:text=""
             android:gravity="left"
             android:id="@+id/textView08"/>
 
         <TextView
+            android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
+            android:text=""
             android:gravity="left"
             android:id="@+id/textView09"/>
 
         <TextView
+            android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
+            android:text=""
             android:gravity="left"
             android:id="@+id/textView011"/>
 
         <TextView
+            android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
+            android:text=""
             android:gravity="left"
             android:id="@+id/textView012"/>
 
         <TextView
+            android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
+            android:text=""
             android:gravity="left"
             android:id="@+id/textView013"/>
     </LinearLayout>
@@ -211,7 +235,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/daftar"
         android:onClick="Edit Data Pribadi"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:text="Edit Data Pribadi">
     </Button>
 
