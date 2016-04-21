@@ -21,6 +21,14 @@ public class Pesanan extends AppCompatActivity {
             getSupportActionBar().setIcon(R.drawable.ic_pesanan);
 
             btn_order = (Button) findViewById(R.id.sts_order);
+
+            btn_order.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }
+            });
+
             btn_enrty = (Button) findViewById(R.id.entry_pesan);
 
             btn_enrty.setOnClickListener(new View.OnClickListener() {
