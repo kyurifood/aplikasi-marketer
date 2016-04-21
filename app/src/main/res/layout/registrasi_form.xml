@@ -19,94 +19,101 @@
         android:entries="@array/pklist"
         android:id="@+id/spinregional" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="KODE"
-        android:id="@+id/textView3" />
 
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Kode"
         android:inputType="text"
         android:id="@+id/editkode" />
+    </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NAMA"
-        android:id="@+id/textView4" />
-
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <EditText
+        android:hint="Nama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
         android:id="@+id/editnama" />
+    </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="E-MAIL"
-        android:id="@+id/textView5" />
-
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
+        android:hint="E-mail"
         android:ems="10"
         android:id="@+id/editemail" />
+    </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <EditText
+        android:hint="Password"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="NO-HP"
-        android:id="@+id/textView6" />
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/pasword" />
+    </android.support.design.widget.TextInputLayout>
 
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="phone"
+        android:hint="No-HP"
         android:ems="10"
         android:id="@+id/edithp" />
+    </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="WHATSAPP"
-        android:id="@+id/textView7" />
-
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <EditText
+        android:hint="WhatApp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:id="@+id/editwa" />
+    </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PIN BB"
-        android:id="@+id/textView8" />
-
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Pin BB"
         android:inputType="text"
         android:id="@+id/editbb" />
+    </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ALAMAT"
-        android:id="@+id/textView9" />
-
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Alamat"
         android:inputType="textPostalAddress"
         android:ems="30"
         android:id="@+id/editalamat" />
+    </android.support.design.widget.TextInputLayout>
 
     <TextView
+        android:padding="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="PROVINSI / KABUPATEN"
@@ -119,6 +126,7 @@
         android:id="@+id/spinprov" />
 
     <TextView
+        android:padding="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="KECAMATAN"
@@ -131,6 +139,7 @@
         android:id="@+id/spinkec" />
 
     <TextView
+        android:padding="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="KELURAHAN"
@@ -142,17 +151,16 @@
         android:layout_height="wrap_content"
         android:id="@+id/spinkel" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="KODE POS"
-        android:id="@+id/textView12" />
-
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Kode Pos"
         android:inputType="number"
         android:id="@+id/editkodepos" />
+    </android.support.design.widget.TextInputLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -167,20 +175,11 @@
         android:text="+"
         android:id="@+id/btnbank" />
 
-    <ListView style="@style/LayoutMatchParent"
-        android:dividerHeight="@dimen/component_padding_margin"
+    <ListView style="@style/scrollbarl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbarSize="3dp"
+        android:layout_gravity="center"
         android:divider="@android:color/transparent"
         android:id="@+id/lv_item" />
-
-
-    <Button
-        style="@style/GreenButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DAFTAR"
-        android:id="@+id/btndaf"
-        android:layout_gravity="center_horizontal" />
-
-
-
 </LinearLayout>

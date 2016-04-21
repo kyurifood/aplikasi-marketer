@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import pusat.android.makananbekuenak.com.aplikasi_marketer.R;
+import pusat.android.makananbekuenak.com.aplikasi_marketer.RegistrasiMarketer;
 import pusat.android.makananbekuenak.com.aplikasi_marketer.domain.Item;
 
 /**
@@ -61,13 +62,22 @@ public class ListItem extends BaseAdapter {
         pemilik.setText(item.getPemilik());
         cabang.setText(item.getCabang());
 
-        final Button delete = (Button)convertView.findViewById(R.id.delete);
+        Button delete = (Button)convertView.findViewById(R.id.delete);
         delete.setOnClickListener(new View.OnClickListener() {
 
             @Override
 
             public void onClick(View v) {
                 deleteItem(position);
+            }
+        });
+
+
+        Button edit = (Button) convertView.findViewById(R.id.edit);
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((RegistrasiMarketer) context).showEditDialog(position, item);
             }
         });
 
@@ -81,6 +91,11 @@ public class ListItem extends BaseAdapter {
 
     public void deleteItem(int position){
         items.remove(position);
+        notifyDataSetChanged();
+    }
+
+    public void editItem(int position, Item item){
+        items.set(position, item);
         notifyDataSetChanged();
     }
 

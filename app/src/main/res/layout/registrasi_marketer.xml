@@ -27,9 +27,10 @@
 
 
     <ScrollView
+        android:scrollbarSize="3dp"
+        style="@style/scrollbar"
         android:layout_width="match_parent"
-        android:layout_height="567dp"
-        android:layout_weight="8.20"
+        android:layout_height="match_parent"
         android:layout_below="@+id/linearLayout"> <include layout="@layout/registrasi_form"/></ScrollView>
 
 </RelativeLayout>

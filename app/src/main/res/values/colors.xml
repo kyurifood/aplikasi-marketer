@@ -37,6 +37,8 @@
     <color name="black_secondary_text">#80000000</color>
     <color name="black_disabled_hint_text">#4D000000</color>
     <color name="black_divider">#4D000000</color>
+    <color name="primary_text_default_material_light">#020202</color>
+    <color name="secondary_text_default_material_dark">#000000</color>
 
 
 </resources>
