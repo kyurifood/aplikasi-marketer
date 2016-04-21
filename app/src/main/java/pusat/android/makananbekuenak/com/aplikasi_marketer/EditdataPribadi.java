@@ -36,9 +36,10 @@ public class EditdataPribadi extends AppCompatActivity {
 
     private Spinner spinnerbank;
 
+    EditText txtkode, txtnama, txthp, txtalamat, txtkodepos, txtemail, txtrek, txtpemilik, txtcabang, txtWA, txtBB, regional;
+    String get_nama, get_hp, get_alamat, get_kodepos, get_email,get_WA, getBB, get_regional;
+    String var_nama,var_email,var_hp,var_WA,varBB,var_alamat,var_kodepos;
 
-
-    EditText txtkode, txtnama, txthp, txtalamat, txtkodepos, txtemail, txtrek, txtpemilik, txtcabang ;
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"(),:;<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
     private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
     private Matcher matcher;
@@ -50,6 +51,8 @@ public class EditdataPribadi extends AppCompatActivity {
         setContentView(R.layout.editdatapribadi);
 
 
+        txtBB = (EditText) findViewById(R.id.editbb);
+        txtWA = (EditText) findViewById(R.id.editwa);
         txtemail = (EditText) findViewById(R.id.editemail);
         txtkode = (EditText) findViewById(R.id.editkode);
         txtnama = (EditText) findViewById(R.id.editnama);
@@ -89,22 +92,14 @@ public class EditdataPribadi extends AppCompatActivity {
 //                set(s);
 //                String s = (String)(spinregional.getSelectedItem());
 //                selection.setText(s);
-
-
                 String email = txtemail.getText().toString();
-                String kode = txtkode.getText().toString();
                 String nama = txtnama.getText().toString();
                 String hp = txthp.getText().toString();
                 String alamat = txtalamat.getText().toString();
                 String kodepos = txtkodepos.getText().toString();
 
-                if (!validateKode(kode)) {
-                    txtkode.setError("silahkan masukan kode");
-                    {
 
-                        Toast.makeText(EditdataPribadi.this, "Kesalahan dalam pengisian kode", Toast.LENGTH_SHORT).show();
-                    }
-                } else if (!validateNama(nama)) {
+                if (!validateNama(nama)) {
                     txtnama.setError("silahkan masukan nama anda");
                     {
                         Toast.makeText(EditdataPribadi.this, "Kesalahan dalam pengisian nama", Toast.LENGTH_SHORT).show();
@@ -141,6 +136,24 @@ public class EditdataPribadi extends AppCompatActivity {
                 showAddDialog();
             }
         });
+
+        Bundle b = getIntent().getExtras();
+
+        get_nama = b.getString("panggil_nama");
+        get_alamat = b.getString("panggil_alamat");
+        get_email = b.getString("panggil_email");
+        get_hp = b.getString("panggil_hp");
+        get_kodepos = b.getString("panggil_kodepos");
+        get_WA = b.getString("panggil_WA");
+        getBB = b.getString("panggil_BB");
+
+        txtWA.setText(get_WA);
+        txtBB.setText(getBB);
+        txtalamat.setText(get_alamat);
+        txtemail.setText(get_email);
+        txthp.setText(get_hp);
+        txtkodepos.setText(get_kodepos);
+        txtnama.setText(get_nama);
     }
 
     public void showAddDialog() {
@@ -164,10 +177,10 @@ public class EditdataPribadi extends AppCompatActivity {
 
         {
             @Override
-            public void onClick (View v){
+            public void onClick(View v) {
                 if (!hasError()) {
                     Item item = new Item();
-                    String s = (String)(spinnerbank.getSelectedItem());
+                    String s = (String) (spinnerbank.getSelectedItem());
                     item.setBank(s);
                     item.setRekening(txtrek.getText().toString());
                     item.setPemilik(txtpemilik.getText().toString());
@@ -201,11 +214,29 @@ public class EditdataPribadi extends AppCompatActivity {
 
 
 
-
     private void submitForm() {
         // Submit your form here. your form is valid
-        Toast.makeText(EditdataPribadi.this, "Edit data pribadi berhasil", Toast.LENGTH_SHORT).show();
+        var_nama = txtnama.getText().toString();
+        var_email = txtemail.getText().toString();
+        var_hp = txthp.getText().toString();
+        var_WA = txtWA.getText().toString();
+        varBB = txtBB.getText().toString();
+        var_alamat = txtalamat.getText().toString();
+        var_kodepos = txtkodepos.getText().toString();
 
+        Intent panggil = null;
+        panggil = new Intent(EditdataPribadi.this, TampilanPribadi.class);
+        Bundle bb = new Bundle();
+        bb.putString("panggilnama",var_nama);
+        bb.putString("panggilemail", var_email);
+        bb.putString("panggilhp", var_hp);
+        bb.putString("panggilWA", var_WA);
+        bb.putString("panggilBB", varBB);
+        bb.putString("panggilalamat", var_alamat);
+        bb.putString("panggilkodePos", var_kodepos);
+        panggil.putExtras(bb);
+        startActivity(panggil);
+        Toast.makeText(EditdataPribadi.this, "Edit data pribadi berhasil", Toast.LENGTH_SHORT).show();
     }
 
     public boolean validateEmail(String email) {

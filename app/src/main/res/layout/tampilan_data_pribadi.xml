@@ -15,85 +15,68 @@
         android:layout_width="194dp"
         android:layout_height="wrap_content">
 
+        <TextView
+            android:textColor="@android:color/black"
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="NAMA"/>
+        <TextView
+            android:textColor="@android:color/black"
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="E-MAIL"/>
+
 
         <TextView
             android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Kode"
-            android:id="@+id/kode" />
+            android:text="NO-HP" />
 
         <TextView
             android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="NAMA"
-            android:id="@+id/nama" />
-        <TextView
-            android:textColor="@android:color/black"
-            android:padding="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="E-MAIL"
-            android:id="@+id/email" />
+            android:text="WHATSAPP"/>
 
         <TextView
             android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="NO-HP"
-            android:id="@+id/nohp" />
+            android:text="PIN BBM" />
 
         <TextView
             android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="WHATSAPP"
-            android:id="@+id/whatsapp" />
+            android:text="REGIONAL" />
 
         <TextView
             android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="PIN BBM"
-            android:id="@+id/pin_bbm" />
+            android:text="ALAMAT" />
 
         <TextView
             android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="REGIONAL"
-            android:id="@+id/regiyonal" />
+            android:text="PROVINSI"/>
 
         <TextView
             android:textColor="@android:color/black"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="ALAMAT"
-            android:id="@+id/alamata" />
-
-        <TextView
-            android:textColor="@android:color/black"
-            android:padding="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="PROVINSI"
-            android:id="@+id/provinsi" />
-
-        <TextView
-            android:textColor="@android:color/black"
-            android:padding="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="KECAMATAN"
-            android:id="@+id/kecamatan" />
+            android:text="KECAMATAN" />
 
         <TextView
             android:textColor="@android:color/black"
@@ -108,8 +91,29 @@
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="KODE POST"
-            android:id="@+id/kodepos" />
+            android:text="KODE POST" />
+
+        <TextView
+            android:textColor="@android:color/black"
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Nama Bank" />
+
+        <TextView
+            android:textColor="@android:color/black"
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Nama Pemilik Bank" />
+
+        <TextView
+            android:textColor="@android:color/black"
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Nomor Rekening Bank" />
+
     </LinearLayout>
 
 
@@ -127,7 +131,7 @@
             android:layout_height="wrap_content"
             android:text=""
             android:gravity="left"
-            android:id="@+id/textView01"/>
+            android:id="@+id/nama"/>
 
         <TextView
             android:textColor="@android:color/black"
@@ -136,7 +140,7 @@
             android:layout_height="wrap_content"
             android:text=""
             android:gravity="left"
-            android:id="@+id/textView02"/>
+            android:id="@+id/email" />
 
         <TextView
             android:textColor="@android:color/black"
@@ -145,7 +149,7 @@
             android:layout_height="wrap_content"
             android:text=""
             android:gravity="left"
-            android:id="@+id/textView03"/>
+            android:id="@+id/nohp" />
 
         <TextView
             android:textColor="@android:color/black"
@@ -154,7 +158,7 @@
             android:layout_height="wrap_content"
             android:text=""
             android:gravity="left"
-            android:id="@+id/textView04"/>
+            android:id="@+id/whatsapp" />
 
         <TextView
             android:textColor="@android:color/black"
@@ -163,7 +167,7 @@
             android:layout_height="wrap_content"
             android:text=""
             android:gravity="left"
-            android:id="@+id/textView05"/>
+            android:id="@+id/pin_bbm"/>
 
         <TextView
             android:textColor="@android:color/black"
@@ -172,7 +176,7 @@
             android:layout_height="wrap_content"
             android:text=""
             android:gravity="left"
-            android:id="@+id/textView06"/>
+            android:id="@+id/regional"/>
 
         <TextView
             android:textColor="@android:color/black"
@@ -181,7 +185,7 @@
             android:layout_height="wrap_content"
             android:text=""
             android:gravity="left"
-            android:id="@+id/textView07"/>
+            android:id="@+id/alamata"/>
 
         <TextView
             android:textColor="@android:color/black"
@@ -190,7 +194,7 @@
             android:layout_height="wrap_content"
             android:text=""
             android:gravity="left"
-            android:id="@+id/textView08"/>
+            android:id="@+id/provinsi" />
 
         <TextView
             android:textColor="@android:color/black"
@@ -199,16 +203,7 @@
             android:layout_height="wrap_content"
             android:text=""
             android:gravity="left"
-            android:id="@+id/textView09"/>
-
-        <TextView
-            android:textColor="@android:color/black"
-            android:padding="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:gravity="left"
-            android:id="@+id/textView011"/>
+            android:id="@+id/kecamatan"/>
 
         <TextView
             android:textColor="@android:color/black"
@@ -226,17 +221,53 @@
             android:layout_height="wrap_content"
             android:text=""
             android:gravity="left"
-            android:id="@+id/textView013"/>
+            android:id="@+id/kodepos"/>
+
+        <TextView
+            android:textColor="@android:color/black"
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:gravity="left"
+            android:id="@+id/namabank"/>
+
+        <TextView
+            android:textColor="@android:color/black"
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:gravity="left"
+            android:id="@+id/nama_pemilik"/>
+
+        <TextView
+            android:textColor="@android:color/black"
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:gravity="left"
+            android:id="@+id/nomor_rekening"/>
+
+
     </LinearLayout>
 </LinearLayout>
 
+    <LinearLayout style="@style/ComponentLayout"
+        android:orientation="horizontal"
+        android:gravity="right">
     <Button
         style="@style/GreenButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/daftar"
-        android:onClick="Edit Data Pribadi"
-        android:layout_width="match_parent"
+        android:id="@+id/btn_editData"
         android:text="Edit Data Pribadi">
     </Button>
+
+        <Button style="@style/RedButton"
+            android:text="Back"
+            android:id="@+id/cancel"/>
+</LinearLayout>
 
 </LinearLayout>

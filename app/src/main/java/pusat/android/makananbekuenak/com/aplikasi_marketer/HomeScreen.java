@@ -78,4 +78,8 @@ public class HomeScreen extends AppCompatActivity{
 
     }
 
+    public void btn_produk(View v) {
+        Intent panggil_class = new Intent(getApplicationContext(), RegistrasiMarketer.class);
+        startActivity(panggil_class);
+    }
 }

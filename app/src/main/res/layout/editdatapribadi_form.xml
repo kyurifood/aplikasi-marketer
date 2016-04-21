@@ -6,19 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".EditdataPribadiMarketer">
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="KODE"
-        android:id="@+id/textView3" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:id="@+id/editkode" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
-        android:id="@+id/editnama" />
+        android:id="@+id/editnama"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -91,7 +78,7 @@
         android:layout_height="wrap_content"
         android:prompt="@string/pk1"
         android:entries="@array/pklist"
-        android:id="@+id/spinregional" />
+        android:id="@+id/spinregiyonal" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -174,7 +161,7 @@
         style="@style/GreenButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SIMPAN"
+        android:text="UPDATE D"
         android:id="@+id/btndaf"
         android:layout_gravity="center_horizontal" />
 
