@@ -19,8 +19,8 @@ public class HomeScreen extends AppCompatActivity{
 
 
 
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+       // Intent intent = new Intent(this, LoginActivity.class);
+       // startActivity(intent);
 
 
 
@@ -60,23 +60,14 @@ public class HomeScreen extends AppCompatActivity{
 
         Intent panggil_class = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_marketer.Laporan.class);
         startActivity(panggil_class);
+    }
 
-        Button pengaturan = (Button) findViewById(R.id.pengaturan);
-        Button pesananan = (Button) findViewById(R.id.pesanan);
+    //--Pesanan--
+    public void btn_pesanan(View v) {
 
-        pengaturan.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Pengaturan.class);
-                startActivity(intent);
-            }
-        });
+        Intent panggil_class = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_marketer.Pesanan.class);
+        startActivity(panggil_class);
 
-        pesananan.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Entry_Order.class);
-                startActivity(intent);
-            }
-        });
     }
 
 }

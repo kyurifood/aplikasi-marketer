@@ -121,7 +121,6 @@
 
     <Spinner
         android:layout_width="match_parent"
-        android:entries="@array/bklist"
         android:layout_height="wrap_content"
         android:id="@+id/spinprov" />
 
@@ -134,7 +133,6 @@
 
     <Spinner
         android:layout_width="match_parent"
-        android:entries="@array/wklist"
         android:layout_height="wrap_content"
         android:id="@+id/spinkec" />
 
@@ -147,7 +145,6 @@
 
     <Spinner
         android:layout_width="match_parent"
-        android:entries="@array/cklist"
         android:layout_height="wrap_content"
         android:id="@+id/spinkel" />
 

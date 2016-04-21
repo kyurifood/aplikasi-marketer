@@ -181,6 +181,18 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <style name="OrangeButtonTheme" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">@color/colorAccentDark</item>
+        <item name="colorButtonNormal">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/white_primary_text</item>
+    </style>
+
+    <style name="OrangeButton">
+        <item name="android:theme">@style/OrangeButtonTheme</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
     <style name="FloatingLabelTheme" parent="Theme.AppCompat.Light">
         <item name="colorControlActivated">@color/black_primary_text</item>
     </style>
@@ -207,4 +219,25 @@
         <item name="android:textColor">@color/material_red_dark</item>
     </style>
     <!--batas style registrasi-->
+
+
+    <!--Line-->
+    <style name="HorizontalDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/line_width</item>
+        <item name="android:background">@drawable/line_horizontal</item>
+    </style>
+
+    <style name="spinnerItemStyle">
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="spinnerDropDownItemStyle">
+        <item name="android:padding">20dp</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

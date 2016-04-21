@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditdataPribadiMarketer">
 
 
     <TextView
@@ -77,6 +80,18 @@
         android:layout_height="wrap_content"
         android:inputType="text"
         android:id="@+id/editbb" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="REGIONAL"
+        android:id="@+id/textView" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@string/pk1"
+        android:entries="@array/pklist"
+        android:id="@+id/spinregional" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -90,18 +105,6 @@
         android:inputType="textPostalAddress"
         android:ems="30"
         android:id="@+id/editalamat" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="REGIONAL"
-        android:id="@+id/textView" />
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:prompt="@string/pk1"
-        android:entries="@array/pklist"
-        android:id="@+id/spinregional" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -155,31 +158,26 @@
         android:id="@+id/textView2" />
 
     <Button
-        style="?android:attr/buttonStyleSmall"
+        style="@style/RedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="+"
         android:id="@+id/btnbank" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hasil pemasukan nomor rekening"
-        android:id="@+id/hasilbank" />
+    <ListView style="@style/LayoutMatchParent"
+        android:dividerHeight="@dimen/component_padding_margin"
+        android:divider="@android:color/transparent"
+        android:id="@+id/lv_item" />
+
 
     <Button
-        style="?android:attr/buttonStyleSmall"
+        style="@style/GreenButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="X"
-        android:id="@+id/hpsbank" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DAFTAR BARU"
-        android:id="@+id/btnok"
+        android:text="SIMPAN"
+        android:id="@+id/btndaf"
         android:layout_gravity="center_horizontal" />
+
 
 
 </LinearLayout>
