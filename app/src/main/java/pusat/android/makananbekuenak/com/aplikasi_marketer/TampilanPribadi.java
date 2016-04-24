@@ -10,14 +10,24 @@ import android.widget.TextView;
 
 public class TampilanPribadi extends AppCompatActivity {
 
+    Button edit;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tampilan_data_pribadi_form);
+
+        edit = (Button) findViewById(R.id.edit);
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                panggil();
+            }
+        });
+
     }
 
-    public void btn_info(View view){
-
-        Intent panggil_class = new Intent(getApplicationContext(), EditdataPribadi.class);
-        startActivity(panggil_class);
+    public void panggil (){
+        Intent callme = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_marketer.EditdataPribadi.class);
+        startActivity(callme);
     }
 }
