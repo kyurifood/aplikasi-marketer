@@ -64,6 +64,7 @@
                 android:value="pusat.android.makananbekuenak.com.aplikasi_marketer.HomeScreen" />
             <!-- END Coding Kembali Ke Menu Utama-->
         </activity>
+
     </application>
 
 </manifest>

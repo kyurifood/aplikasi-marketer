@@ -84,7 +84,8 @@
         android:id="@+id/tambahproduk"
         android:layout_alignTop="@+id/kurang"
         android:layout_toLeftOf="@+id/kurang"
-        android:layout_toStartOf="@+id/kurang" />
+        android:layout_toStartOf="@+id/kurang"
+        android:onClick="integerMax"/>
 
     <EditText
         android:layout_width="80sp"

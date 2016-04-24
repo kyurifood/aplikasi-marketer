@@ -1,5 +1,6 @@
 package pusat.android.makananbekuenak.com.aplikasi_marketer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -125,18 +126,6 @@ public class Entry_Order extends AppCompatActivity {
         dataAdapter = new MyCustomAdapter(this, R.layout.list_produk_layout, rowList);
         ListView listView = (ListView) findViewById(R.id.listV_main);
         listView.setAdapter(dataAdapter);
-
-//        Button addNewItem = (Button) findViewById(R.id.tambahproduk);
-//        addNewItem.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                minteger = minteger + 1;
-//                display(minteger);
-//
-//                Toast.makeText(Entry_Order.this, "Kesalahan dalam pengisian kode pos", Toast.LENGTH_SHORT).show();
-//
-//            }
-//        });
     }
 
     private class MyCustomAdapter extends ArrayAdapter<ItemEntry_Order> {
@@ -160,7 +149,7 @@ public class Entry_Order extends AppCompatActivity {
                 LayoutInflater vi = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 view = vi.inflate(R.layout.list_produk_layout, null);
                 EditText jumlah = (EditText) view.findViewById(R.id.jumlah);
-                //attach the TextWatcher listener to the EditText
+
                 jumlah.addTextChangedListener(new MyTextWatcher(view));
                 if(position % 2 == 0){
                     view.setBackgroundColor(Color.rgb(238, 233, 233));
@@ -192,20 +181,8 @@ public class Entry_Order extends AppCompatActivity {
             else {
                 ext.setText("");
             }
-
-//            EditText displayInteger = (EditText)view.findViewById(R.id.jumlah);
-//            displayInteger.setText("Integer: " + displayInteger);
-
-
             return view;
-
         }
-//        public void display(int number) {
-//            EditText displayInteger = (EditText)view.findViewById(R.id.jumlah);
-//            displayInteger.setText("Integer: " + number);
-//
-//        }
-
     }
 
     private class MyTextWatcher implements TextWatcher{
@@ -222,74 +199,40 @@ public class Entry_Order extends AppCompatActivity {
             //do nothing
         }
         public void afterTextChanged(Editable s) {
-
             DecimalFormat df = new DecimalFormat("0.00##");
             String jmlString = s.toString().trim();
             int jumlah = jmlString.equals("") ? 0:Integer.valueOf(jmlString);
-
             EditText jmlView = (EditText) view.findViewById(R.id.jumlah);
+            Button Tambah = (Button) view.findViewById(R.id.tambahproduk);
+            Tambah.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    minteger = minteger + 1;
+                    display(minteger);
+                }
+            });
             ItemEntry_Order row_1 = (ItemEntry_Order) jmlView.getTag();
-
-            if(row_1.getJumlah() != jumlah){
-
+            if(row_1.getJumlah() != jumlah) {
                 Double currPrice = row_1.getExt();
                 Double extPrice = jumlah * row_1.getPrice();
                 Double priceDiff = Double.valueOf(df.format(extPrice - currPrice));
-
                 row_1.setJumlah(jumlah);
                 row_1.setExt(extPrice);
-
                 TextView ext = (TextView) view.findViewById(R.id.ext);
-                if(row_1.getJumlah() != 0){
-                    ext.setText("$" + df.format(row_1.getExt()));
-                }
-                else {
-                    ext.setText("");
-                }
-
-                if(row_1.getJumlah() != 0){
-                    jmlView.setText(String.valueOf(row_1.getJumlah()));
-                }
-                else {
-                    jmlView.setText("");
-                }
-
+                if(row_1.getJumlah() != 0){ext.setText("$" + df.format(row_1.getExt()));}
+                else {ext.setText("");}
+                if(row_1.getJumlah() != 0){jmlView.setText(String.valueOf(row_1.getJumlah()));}
+                else {jmlView.setText("");}
                 orderTotal += priceDiff;
                 TextView cariTotal = (TextView) findViewById(R.id.cariTotal);
-                cariTotal.setText(df.format(orderTotal));
+                cariTotal.setText(df.format(orderTotal));}
+        }
+        private void display(int number) {
+            TextView displayInteger = (TextView) findViewById(
+                    R.id.jumlah);
+            displayInteger.setText("" + number);
 
-            }
-
-            Button addNewItem = (Button) view.findViewById(R.id.tambahproduk);
-            addNewItem.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-//                    minteger = minteger + 1;
-//                    jmlView.setText(minteger);
-
-                    Toast.makeText(Entry_Order.this, "Tambah", Toast.LENGTH_SHORT).show();
-
-                }
-            });
-
-            return;
         }
     }
-
-//    public void increaseInteger(View view) {
-//        minteger = minteger + 1;
-//        display(minteger);
-//    }
-//
-//    public void increaseIntegermin(View view) {
-//        minteger = minteger - 1;
-//        display(minteger);
-//    }
-//
-//    private void display(int number) {
-//        EditText displayInteger = (EditText)findViewById(
-//                R.id.jumlah);
-//        displayInteger.setText("Integer: " + number);
-//
-//    }
 }
