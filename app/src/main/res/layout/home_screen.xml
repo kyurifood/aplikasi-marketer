@@ -51,7 +51,6 @@
         android:drawableLeft="@drawable/ic_clipboard"
         android:layout_gravity="center_horizontal" />
 
-
     <Button
         style="@style/Hijau"
         android:layout_width="match_parent"
@@ -63,7 +62,6 @@
         android:drawableLeft="@drawable/ic_email"
         android:layout_gravity="center_horizontal" />
 
-
     <Button
         style="@style/Hijau"
         android:layout_width="match_parent"
@@ -74,6 +72,4 @@
         android:id="@+id/pengaturan"
         android:drawableLeft="@drawable/ic_cogwheel"
         android:layout_gravity="center_horizontal" />
-
-
 </LinearLayout>

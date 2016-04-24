@@ -8,10 +8,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name=".EditdataPribadi" />
+
         <activity
-            android:name=".HomeScreen"
-            android:label="@string/app_name" >
+            android:name=".HomeScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -23,10 +22,14 @@
         <activity
             android:name="pusat.android.makananbekuenak.com.aplikasi_marketer.SignupActivity"
             android:theme="@style/AppTheme.Dark" />
+
+        <activity android:name=".Entry_Order" />
+
         <activity
             android:name=".RegistrasiMarketer"
             android:theme="@style/AppTheme.baru" >
         </activity>
+
         <activity android:name=".Pengaturan"
             android:label="Pengaturan"
             android:configChanges="orientation|screenSize"
@@ -49,7 +52,7 @@
             <!-- END Coding Kembali Ke Menu Utama-->
         </activity>
 
-        <activity android:name=".Entry_Order" />
+
         <activity android:name=".Entry_Order2" />
         <activity android:name=".Entry_Order3" />
         <activity android:name=".MainActivity" />
@@ -65,6 +68,8 @@
             <!-- END Coding Kembali Ke Menu Utama-->
         </activity>
 
+        <activity android:name=".TampilanPribadi"/>
+        <activity android:name=".EditdataPribadi"/>
     </application>
 
 </manifest>
