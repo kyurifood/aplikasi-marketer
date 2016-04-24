@@ -23,7 +23,20 @@
         <item name="android:textColorHint">@color/oil</item>
 
         <item name="colorButtonNormal">@color/primary_darker</item>
+
     </style>
+
+    <style name="AppTheme.baru">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="android:windowBackground">@color/cream</item>
+
+        <item name="android:textColorHint">@color/oil</item>
+
+        <item name="android:textViewStyle">@color/black</item>
+
+    </style>
+
 
     <style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
         <item name="colorAccent">@color/hijau</item>
@@ -38,6 +51,23 @@
         <item name="textColorAlertDialogListItem">@color/black_secondary_text</item>
         <item name="colorAccent">@color/colorPrimary</item>
         <item name="android:textColorPrimary">@color/black_secondary_text</item>
+    </style>
+
+    <style name="scrollbar">
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:fadeScrollbars">false</item>
+        <item name="android:scrollbarThumbVertical">@drawable/scrollbar_vertical_thumb</item>
+        <item name="android:scrollbarTrackVertical">@drawable/scrollbar_vertical_track</item>
+    </style>
+
+    <style name="scrollbarl">
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:fadeScrollbars">false</item>
+        <item name="android:scrollbarThumbVertical">@drawable/scrollbarl_thumb</item>
     </style>
 
     <style name="LayoutMatchParent">
@@ -151,6 +181,18 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <style name="OrangeButtonTheme" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">@color/colorAccentDark</item>
+        <item name="colorButtonNormal">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/white_primary_text</item>
+    </style>
+
+    <style name="OrangeButton">
+        <item name="android:theme">@style/OrangeButtonTheme</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
     <style name="FloatingLabelTheme" parent="Theme.AppCompat.Light">
         <item name="colorControlActivated">@color/black_primary_text</item>
     </style>
@@ -177,4 +219,25 @@
         <item name="android:textColor">@color/material_red_dark</item>
     </style>
     <!--batas style registrasi-->
+
+
+    <!--Line-->
+    <style name="HorizontalDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/line_width</item>
+        <item name="android:background">@drawable/line_horizontal</item>
+    </style>
+
+    <style name="spinnerItemStyle">
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="spinnerDropDownItemStyle">
+        <item name="android:padding">20dp</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

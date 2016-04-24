@@ -1,11 +1,15 @@
 package pusat.android.makananbekuenak.com.aplikasi_marketer;
 
 import android.content.Intent;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.ActionMode;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,16 +37,16 @@ public class EditdataPribadi extends AppCompatActivity {
     AlertDialog.Builder addNewItemDialogBuilder = null;
     AlertDialog addNewItemDialog = null;
     View promptsView;
+    TextInputLayout lbrek;
 
     private Spinner spinnerbank;
 
-    EditText txtkode, txtnama, txthp, txtalamat, txtkodepos, txtemail, txtrek, txtpemilik, txtcabang, txtWA, txtBB, regional;
-    String get_nama, get_hp, get_alamat, get_kodepos, get_email,get_WA, getBB, get_regional;
-    String var_nama,var_email,var_hp,var_WA,varBB,var_alamat,var_kodepos;
+    EditText txtkode, txtnama, txthp, txtalamat, txtkodepos, txtemail, txtrek, txtpemilik, txtcabang, txtpas, txtcpas;
 
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"(),:;<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
     private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
     private Matcher matcher;
+
 
     List<Item> items = new ArrayList<>();
     @Override
@@ -51,8 +55,6 @@ public class EditdataPribadi extends AppCompatActivity {
         setContentView(R.layout.editdatapribadi);
 
 
-        txtBB = (EditText) findViewById(R.id.editbb);
-        txtWA = (EditText) findViewById(R.id.editwa);
         txtemail = (EditText) findViewById(R.id.editemail);
         txtkode = (EditText) findViewById(R.id.editkode);
         txtnama = (EditText) findViewById(R.id.editnama);
@@ -70,9 +72,9 @@ public class EditdataPribadi extends AppCompatActivity {
         lSpinner.setOnItemSelectedListener(new OnSpinnerItemClicked());
 
         lvItem = (ListView) findViewById(R.id.lv_item);
-        ViewGroup.LayoutParams listViewParams = (ViewGroup.LayoutParams) lvItem.getLayoutParams();
-        listViewParams.height = 835;
-        lvItem.requestLayout();
+//        ViewGroup.LayoutParams listViewParams = (ViewGroup.LayoutParams) lvItem.getLayoutParams();
+//        listViewParams.height = 360;
+//        lvItem.requestLayout();
 
         lvItem.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -81,54 +83,6 @@ public class EditdataPribadi extends AppCompatActivity {
                 return false;
             }
         });
-
-
-        Button btndaf = (Button)findViewById(R.id.btndaf);
-        btndaf.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View rootView) {
-
-//                String s = (String)(spinregional.getSelectedItem());
-//                set(s);
-//                String s = (String)(spinregional.getSelectedItem());
-//                selection.setText(s);
-                String email = txtemail.getText().toString();
-                String nama = txtnama.getText().toString();
-                String hp = txthp.getText().toString();
-                String alamat = txtalamat.getText().toString();
-                String kodepos = txtkodepos.getText().toString();
-
-
-                if (!validateNama(nama)) {
-                    txtnama.setError("silahkan masukan nama anda");
-                    {
-                        Toast.makeText(EditdataPribadi.this, "Kesalahan dalam pengisian nama", Toast.LENGTH_SHORT).show();
-                    }
-                } else if (!validateEmail(email)) {
-                    txtemail.setError("silahkan masukan email");
-                    {
-                        Toast.makeText(EditdataPribadi.this, "Kesalahan dalam pengisian email", Toast.LENGTH_SHORT).show();
-                    }
-                } else if (!validateHp(hp)) {
-                    txthp.setError("silahkan masukan nomor hand phone");
-                    {
-                        Toast.makeText(EditdataPribadi.this, "Kesalahan dalam pengisian phone", Toast.LENGTH_SHORT).show();
-                    }
-                } else if (!validateAlamat(alamat)) {
-                    txtalamat.setError("silahkan masukan alamat anda");
-                    {
-                        Toast.makeText(EditdataPribadi.this, "Kesalahan dalam pengisian alamat", Toast.LENGTH_SHORT).show();
-                    }
-                } else if (!validateKodepos(kodepos)) {
-                    txtkodepos.setError("silahkan masukan kode pos");
-                    {
-                        Toast.makeText(EditdataPribadi.this, "Kesalahan dalam pengisian kode pos", Toast.LENGTH_SHORT).show();
-                    }
-
-                } else submitForm();
-            }
-        });
-
         Button addNewItem = (Button) findViewById(R.id.btnbank);
         addNewItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,24 +90,6 @@ public class EditdataPribadi extends AppCompatActivity {
                 showAddDialog();
             }
         });
-
-        Bundle b = getIntent().getExtras();
-
-        get_nama = b.getString("panggil_nama");
-        get_alamat = b.getString("panggil_alamat");
-        get_email = b.getString("panggil_email");
-        get_hp = b.getString("panggil_hp");
-        get_kodepos = b.getString("panggil_kodepos");
-        get_WA = b.getString("panggil_WA");
-        getBB = b.getString("panggil_BB");
-
-        txtWA.setText(get_WA);
-        txtBB.setText(getBB);
-        txtalamat.setText(get_alamat);
-        txtemail.setText(get_email);
-        txthp.setText(get_hp);
-        txtkodepos.setText(get_kodepos);
-        txtnama.setText(get_nama);
     }
 
     public void showAddDialog() {
@@ -162,6 +98,7 @@ public class EditdataPribadi extends AppCompatActivity {
         }
 
         promptsView = LayoutInflater.from(EditdataPribadi.this).inflate(R.layout.tambah_bank, null);
+
 
         final Spinner mSpinner= (Spinner) promptsView.findViewById(R.id.spinnerbank);
         txtrek = (EditText) promptsView.findViewById(R.id.editText);
@@ -212,37 +149,81 @@ public class EditdataPribadi extends AppCompatActivity {
         addNewItemDialog.show();
     }
 
+    public void showEditDialog(final int position, Item item) {
+        if (addNewItemDialogBuilder == null) {
+            addNewItemDialogBuilder = new AlertDialog.Builder(EditdataPribadi.this, R.style.DialogStyle);
+        }
+
+        promptsView = LayoutInflater.from(EditdataPribadi.this).inflate(R.layout.tambah_bank, null);
+
+        Spinner mSpinner= (Spinner) promptsView.findViewById(R.id.spinnerbank);
+        txtrek = (EditText) promptsView.findViewById(R.id.editText);
+        txtrek.setText(item.getRekening());
+        txtpemilik = (EditText) promptsView.findViewById(R.id.editText2);
+        txtpemilik.setText(item.getPemilik());
+        txtcabang = (EditText) promptsView.findViewById(R.id.editText3);
+        txtcabang.setText(item.getCabang());
+        spinnerbank = (Spinner) promptsView.findViewById(R.id.spinnerbank);
+        String s = (String)(spinnerbank.getSelectedItem());
+        item.setBank(s);
+
+        mSpinner.setOnItemSelectedListener(new OnSpinnerItemClicked());
+
+
+        Button save = (Button) promptsView.findViewById(R.id.ok);
+        save.setOnClickListener(new View.OnClickListener()
+
+        {
+            @Override
+            public void onClick (View v){
+                if (!hasError()) {
+                    Item newitem = new Item();
+                    String s = (String)(spinnerbank.getSelectedItem());
+                    newitem.setBank(s);
+                    newitem.setRekening(txtrek.getText().toString());
+                    newitem.setPemilik(txtpemilik.getText().toString());
+                    newitem.setCabang(txtcabang.getText().toString());
+
+                    adapter.editItem(position, newitem);
+                    addNewItemDialog.dismiss();
+                }
+            }
+        });
+
+        Button cancel = (Button) promptsView.findViewById(R.id.cancel);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addNewItemDialog.dismiss();
+            }
+        });
+
+        addNewItemDialogBuilder.setView(promptsView);
+        addNewItemDialogBuilder.setCancelable(false);
+        addNewItemDialog = addNewItemDialogBuilder.create();
+        addNewItemDialog.show();
+    }
+
+
 
 
     private void submitForm() {
         // Submit your form here. your form is valid
-        var_nama = txtnama.getText().toString();
-        var_email = txtemail.getText().toString();
-        var_hp = txthp.getText().toString();
-        var_WA = txtWA.getText().toString();
-        varBB = txtBB.getText().toString();
-        var_alamat = txtalamat.getText().toString();
-        var_kodepos = txtkodepos.getText().toString();
+        Toast.makeText(EditdataPribadi.this, "Update Data Pribadi berhasil", Toast.LENGTH_SHORT).show();
 
-        Intent panggil = null;
-        panggil = new Intent(EditdataPribadi.this, TampilanPribadi.class);
-        Bundle bb = new Bundle();
-        bb.putString("panggilnama",var_nama);
-        bb.putString("panggilemail", var_email);
-        bb.putString("panggilhp", var_hp);
-        bb.putString("panggilWA", var_WA);
-        bb.putString("panggilBB", varBB);
-        bb.putString("panggilalamat", var_alamat);
-        bb.putString("panggilkodePos", var_kodepos);
-        panggil.putExtras(bb);
-        startActivity(panggil);
-        Toast.makeText(EditdataPribadi.this, "Edit data pribadi berhasil", Toast.LENGTH_SHORT).show();
     }
 
     public boolean validateEmail(String email) {
         matcher = pattern.matcher(email);
         return matcher.matches();
     }
+
+    public boolean validasiPass(String pass) {
+        return pass.length() > 4;
+    }
+    //    public boolean validasiCPass(String cpass) {
+//        return cpass.length() > 0;
+//    }
     public boolean validateKode(String kode) {
         return kode.length() > 0;
     }
@@ -258,6 +239,7 @@ public class EditdataPribadi extends AppCompatActivity {
     public boolean validateKodepos(String kodepos) {
         return kodepos.length() > 0;
     }
+
     private boolean hasError(){
         boolean isError = false;
         if(TextUtils.isEmpty(txtrek.getText().toString())){
@@ -288,4 +270,60 @@ public class EditdataPribadi extends AppCompatActivity {
 
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menuedit_info_pribadi, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_pros) {
+
+            String email = txtemail.getText().toString();
+            String nama = txtnama.getText().toString();
+            String hp = txthp.getText().toString();
+            String alamat = txtalamat.getText().toString();
+            String kodepos = txtkodepos.getText().toString();
+
+
+            if (!validateNama(nama)) {
+                txtnama.setError("silahkan masukan nama anda");
+                {
+                    Toast.makeText(EditdataPribadi.this, "Kesalahan dalam pengisian nama", Toast.LENGTH_SHORT).show();
+                }
+            } else if (!validateEmail(email)) {
+                txtemail.setError("silahkan masukan email");
+                {
+                    Toast.makeText(EditdataPribadi.this, "Kesalahan dalam pengisian email", Toast.LENGTH_SHORT).show();
+                }
+            }else if (!validateHp(hp)) {
+                txthp.setError("silahkan masukan nomor hand phone");
+                {
+                    Toast.makeText(EditdataPribadi.this, "Kesalahan dalam pengisian phone", Toast.LENGTH_SHORT).show();
+                }
+            } else if (!validateAlamat(alamat)) {
+                txtalamat.setError("silahkan masukan alamat anda");
+                {
+                    Toast.makeText(EditdataPribadi.this, "Kesalahan dalam pengisian alamat", Toast.LENGTH_SHORT).show();
+                }
+            } else if (!validateKodepos(kodepos)) {
+                txtkodepos.setError("silahkan masukan kode pos");
+                {
+                    Toast.makeText(EditdataPribadi.this, "Kesalahan dalam pengisian kode pos", Toast.LENGTH_SHORT).show();
+                }
+
+            } else submitForm();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 }

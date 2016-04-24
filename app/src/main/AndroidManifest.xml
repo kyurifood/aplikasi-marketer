@@ -22,7 +22,14 @@
         <activity
             android:name="pusat.android.makananbekuenak.com.aplikasi_marketer.SignupActivity"
             android:theme="@style/AppTheme.Dark" />
+
         <activity android:name=".Entry_Order" />
+
+        <activity
+            android:name=".RegistrasiMarketer"
+            android:theme="@style/AppTheme.baru" >
+        </activity>
+
         <activity android:name=".Pengaturan"
             android:label="Pengaturan"
             android:configChanges="orientation|screenSize"
@@ -48,7 +55,7 @@
 
         <activity android:name=".Entry_Order2" />
         <activity android:name=".Entry_Order3" />
-
+        <activity android:name=".MainActivity" />
         <activity android:name=".Pesanan"
             android:label="Pesanan"
             android:configChanges="orientation|screenSize"
@@ -62,7 +69,6 @@
         </activity>
 
         <activity android:name=".TampilanPribadi"/>
-        <activity android:name=".RegistrasiMarketer"/>
         <activity android:name=".EditdataPribadi"/>
     </application>
 
