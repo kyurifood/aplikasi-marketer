@@ -41,7 +41,8 @@ public class EditdataPribadi extends AppCompatActivity {
 
     private Spinner spinnerbank;
 
-    EditText txtkode, txtnama, txthp, txtalamat, txtkodepos, txtemail, txtrek, txtpemilik, txtcabang, txtpas, txtcpas;
+    EditText txtnama, txthp, txtalamat, txtkodepos, txtemail, txtrek, txtpemilik, txtcabang;
+    String get_nama, get_hp, get_alamat, get_kodepos, get_email, get_rek, get_pemilik, get_cabang;
 
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"(),:;<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
     private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
@@ -56,7 +57,6 @@ public class EditdataPribadi extends AppCompatActivity {
 
 
         txtemail = (EditText) findViewById(R.id.editemail);
-        txtkode = (EditText) findViewById(R.id.editkode);
         txtnama = (EditText) findViewById(R.id.editnama);
         txthp = (EditText) findViewById(R.id.edithp);
         txtalamat = (EditText) findViewById(R.id.editalamat);
@@ -90,6 +90,20 @@ public class EditdataPribadi extends AppCompatActivity {
                 showAddDialog();
             }
         });
+
+        Bundle b = getIntent().getExtras();
+        get_nama = b.getString("panggil_nama");
+        get_email = b.getString("panggil_email");
+        get_hp = b.getString("panggil_hp");
+        get_alamat = b.getString("panggil_alamat");
+        get_kodepos = b.getString("panggil_kodepos");
+
+        txtnama.setText("" + get_nama);
+        txtemail.setText("" + get_email);
+        txthp.setText(""+ get_hp);
+        txtkodepos.setText(""+ get_kodepos);
+        txtalamat.setText("" + get_alamat);
+
     }
 
     public void showAddDialog() {
