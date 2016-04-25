@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -60,6 +61,8 @@ public class List_item_pesanan extends BaseAdapter {
 
         Button btnAction1 = (Button) convertView.findViewById(R.id.btn_action_1);
         Button btnAction2 = (Button) convertView.findViewById(R.id.btn_action_2);
+        final CheckBox lunas = (CheckBox) convertView.findViewById(R.id.cb_lunas);
+        CheckBox baru = (CheckBox) convertView.findViewById(R.id.cb_baru);
 
 
         no_order.setText(item.getNo_order());
@@ -72,7 +75,8 @@ public class List_item_pesanan extends BaseAdapter {
         btnAction2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, item.getNo_order(), Toast.LENGTH_SHORT).show();
+                lunas.setChecked(true);
+                Toast.makeText(context, item.getNo_order() + ", Lunas", Toast.LENGTH_SHORT).show();
             }
         });
 
