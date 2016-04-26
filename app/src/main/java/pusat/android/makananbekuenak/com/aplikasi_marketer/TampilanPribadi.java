@@ -20,6 +20,8 @@ public class TampilanPribadi extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tampilan_data_pribadi_form);
 
+        getSupportActionBar().setTitle("INFO PRIBADI");
+
         txtemail = (EditText) findViewById(R.id.Email);
         txtnama = (EditText) findViewById(R.id.nama);
         txthp = (EditText) findViewById(R.id.nohp);

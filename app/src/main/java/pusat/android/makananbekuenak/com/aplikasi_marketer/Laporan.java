@@ -16,6 +16,11 @@ public class Laporan extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.laporan);
 
+        getSupportActionBar().setTitle(" LAPORAN");
+        getSupportActionBar().setLogo(R.drawable.black_ic_clipboard);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         b_distributor = (Button) findViewById(R.id.btn_distributor);
         b_marketer = (Button) findViewById(R.id.btn_marketer);
         b_produk = (Button) findViewById(R.id.btn_produk);
