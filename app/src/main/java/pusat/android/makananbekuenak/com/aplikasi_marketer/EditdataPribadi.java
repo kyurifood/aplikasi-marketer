@@ -43,6 +43,7 @@ public class EditdataPribadi extends AppCompatActivity {
 
     EditText txtnama, txthp, txtalamat, txtkodepos, txtemail, txtrek, txtpemilik, txtcabang;
     String get_nama, get_hp, get_alamat, get_kodepos, get_email, get_rek, get_pemilik, get_cabang;
+    String var_nama, var_hp, var_alamat, var_kodepos, var_email, var_rek,var_pemilik, var_cabang;
 
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"(),:;<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
     private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
@@ -223,6 +224,22 @@ public class EditdataPribadi extends AppCompatActivity {
 
     private void submitForm() {
         // Submit your form here. your form is valid
+        var_nama = txtnama.getText().toString();
+        var_email = txtemail.getText().toString();
+        var_alamat = txtalamat.getText().toString();
+        var_hp = txthp.getText().toString();
+        var_kodepos = txtkodepos.getText().toString();
+
+        Intent parsing = null;
+        parsing = new Intent(EditdataPribadi.this, TampilanPribadi.class);
+        Bundle bb = new Bundle();
+        bb.putString("panggilnama", var_nama);
+        bb.putString("panggilemail", var_email);
+        bb.putString("panggilhp", var_hp);
+        bb.putString("panggilalamat", var_alamat);
+        bb.putString("panggilkodepos", var_kodepos);
+        parsing.putExtras(bb);
+        startActivity(parsing);
         Toast.makeText(EditdataPribadi.this, "Update Data Pribadi berhasil", Toast.LENGTH_SHORT).show();
 
     }
@@ -306,7 +323,6 @@ public class EditdataPribadi extends AppCompatActivity {
             String alamat = txtalamat.getText().toString();
             String kodepos = txtkodepos.getText().toString();
 
-
             if (!validateNama(nama)) {
                 txtnama.setError("silahkan masukan nama anda");
                 {
@@ -336,6 +352,11 @@ public class EditdataPribadi extends AppCompatActivity {
             } else submitForm();
             return true;
         }
+
+        if (id == R.id.reset){
+
+        }
+
 
         return super.onOptionsItemSelected(item);
     }

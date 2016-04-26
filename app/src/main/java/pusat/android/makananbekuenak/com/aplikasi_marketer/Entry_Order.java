@@ -3,6 +3,7 @@ package pusat.android.makananbekuenak.com.aplikasi_marketer;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -35,7 +36,8 @@ public class Entry_Order extends AppCompatActivity {
     ArrayAdapter<String> adapter_distributor;
     private MyCustomAdapter dataAdapter = null;
     private Double orderTotal = 0.00;
-
+    EditText displayInteger;
+    String txtJumlahTag;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -131,7 +133,7 @@ public class Entry_Order extends AppCompatActivity {
     private class MyCustomAdapter extends ArrayAdapter<ItemEntry_Order> {
 
         private ArrayList<ItemEntry_Order> rowList;
-
+        View adapterView;
         public MyCustomAdapter(Context context, int textViewResourceId,
                                ArrayList<ItemEntry_Order> rowList) {
             super(context, textViewResourceId, rowList);
@@ -144,20 +146,65 @@ public class Entry_Order extends AppCompatActivity {
 
             DecimalFormat df = new DecimalFormat("0.00##");
             ItemEntry_Order row_1 = rowList.get(position);
-
             if (view == null) {
                 LayoutInflater vi = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 view = vi.inflate(R.layout.list_produk_layout, null);
-                EditText jumlah = (EditText) view.findViewById(R.id.jumlah);
-
-                jumlah.addTextChangedListener(new MyTextWatcher(view));
+                adapterView = view;
+//                displayInteger = (EditText) view.findViewById(R.id.jumlah);
+//                txtJumlahTag = "txtjumlah" + String.valueOf(position);
+//                displayInteger.setTag(txtJumlahTag);
+//                displayInteger.addTextChangedListener(new MyTextWatcher(view, position));
                 if(position % 2 == 0){
                     view.setBackgroundColor(Color.rgb(238, 233, 233));
                 }
             }
 
-            EditText jumlah = (EditText) view.findViewById(R.id.jumlah);
+            final EditText jumlah = (EditText) view.findViewById(R.id.jumlah);
             jumlah.setTag(row_1);
+            jumlah.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    DecimalFormat df = new DecimalFormat("0.00##");
+                    String jmlString = s.toString().trim();
+                    int x = jmlString.equals("") ? 0:Integer.valueOf(jmlString);
+                    Button Tambah = (Button) adapterView.findViewById(R.id.tambahproduk);
+                    Tambah.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            minteger = minteger + 1;
+                            jumlah.setText(String.valueOf(minteger));
+                        }
+                    });
+                    ItemEntry_Order row_1 = (ItemEntry_Order) jumlah.getTag();
+                    if(row_1.getJumlah() != x) {
+                        Double currPrice = row_1.getExt();
+                        Double extPrice = x * row_1.getPrice();
+                        Log.i("currPrice", row_1.getExt().toString());
+                        Log.i("extPrice", row_1.getPrice().toString());
+                        Double priceDiff = extPrice - currPrice;
+                        row_1.setJumlah(x);
+                        row_1.setExt(extPrice);
+                        TextView ext = (TextView) adapterView.findViewById(R.id.ext);
+                        if(row_1.getJumlah() != 0){ext.setText("$" + df.format(row_1.getExt()));}
+                        else {ext.setText("");}
+                        if(row_1.getJumlah() != 0){jumlah.setText(String.valueOf(row_1.getJumlah()));}
+                        else {jumlah.setText("");}
+                        orderTotal += priceDiff;
+                        TextView cariTotal = (TextView) findViewById(R.id.cariTotal);
+                        cariTotal.setText(df.format(orderTotal));}
+                }
+            });
             if(row_1.getJumlah() != 0){
                 jumlah.setText(String.valueOf(row_1.getJumlah()));
             }
@@ -188,8 +235,10 @@ public class Entry_Order extends AppCompatActivity {
     private class MyTextWatcher implements TextWatcher{
 
         private View view;
+//        String jumlahTag;
         private MyTextWatcher(View view) {
             this.view = view;
+//            jumlahTag = "txtjumlah" + String.valueOf(position);
         }
 
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -202,21 +251,23 @@ public class Entry_Order extends AppCompatActivity {
             DecimalFormat df = new DecimalFormat("0.00##");
             String jmlString = s.toString().trim();
             int jumlah = jmlString.equals("") ? 0:Integer.valueOf(jmlString);
-            EditText jmlView = (EditText) view.findViewById(R.id.jumlah);
+            final EditText jmlView = (EditText) view.findViewById(R.id.jumlah);
             Button Tambah = (Button) view.findViewById(R.id.tambahproduk);
             Tambah.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
                     minteger = minteger + 1;
-                    display(minteger);
+                    jmlView.setText(minteger);
                 }
             });
             ItemEntry_Order row_1 = (ItemEntry_Order) jmlView.getTag();
             if(row_1.getJumlah() != jumlah) {
                 Double currPrice = row_1.getExt();
                 Double extPrice = jumlah * row_1.getPrice();
-                Double priceDiff = Double.valueOf(df.format(extPrice - currPrice));
+                Log.i("currPrice", row_1.getExt().toString());
+                Log.i("extPrice", row_1.getPrice().toString());
+                Double priceDiff = extPrice - currPrice;
                 row_1.setJumlah(jumlah);
                 row_1.setExt(extPrice);
                 TextView ext = (TextView) view.findViewById(R.id.ext);
@@ -228,11 +279,10 @@ public class Entry_Order extends AppCompatActivity {
                 TextView cariTotal = (TextView) findViewById(R.id.cariTotal);
                 cariTotal.setText(df.format(orderTotal));}
         }
-        private void display(int number) {
-            TextView displayInteger = (TextView) findViewById(
-                    R.id.jumlah);
-            displayInteger.setText("" + number);
-
-        }
+//        private void display(EditText txtJumlah,int number) {
+//            EditText txtJumlah = (EditText) v;
+//            txtJumlah.setText("" + number);
+//
+//        }
     }
 }

@@ -14,7 +14,8 @@ public class TampilanPribadi extends AppCompatActivity {
     Button edit;
 
     EditText txtnama, txthp, txtalamat, txtkodepos, txtemail;
-    String var_nama, var_hp, var_alamat, var_kodepos, var_email;
+    String var_nama, var_hp, var_alamat, var_kodepos, var_email = "";
+    String get_nama, get_hp, get_alamat, get_kodepos, get_email = "";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +26,28 @@ public class TampilanPribadi extends AppCompatActivity {
         txthp = (EditText) findViewById(R.id.nohp);
         txtalamat = (EditText) findViewById(R.id.alamat);
         txtkodepos = (EditText) findViewById(R.id.kodepos);
+
+
+        Bundle bb = getIntent().getExtras();
+
+        if(bb != null) {
+
+            if (bb.containsKey("panggilnama"))
+                get_nama = bb.getString("panggilnama");
+            if (bb.containsKey("panggilalamat"))
+                get_alamat = bb.getString("panggilalamat");
+            if (bb.containsKey("panggilemail"))
+                get_email = bb.getString("panggilemail");
+            if (bb.containsKey("panggilhp"))
+                get_hp = bb.getString("panggilhp");
+            if (bb.containsKey("panggilkodepos"))
+                get_kodepos = bb.getString("panggilkodepos");
+        }
+        txtnama.setText("" + get_nama);
+        txthp.setText("" + get_hp);
+        txtemail.setText("" + get_email);
+        txtalamat.setText("" + get_alamat);
+        txtkodepos.setText("" + get_kodepos);
 
         edit = (Button) findViewById(R.id.edit);
         edit.setOnClickListener(new View.OnClickListener() {
