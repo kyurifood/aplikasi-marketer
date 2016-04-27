@@ -20,6 +20,8 @@ public class HomeScreen extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
 
+        getSupportActionBar().setTitle("Marketer");
+
         btn_pesanan = (Button) findViewById(R.id.pesanana);
         btn_pesanan.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
@@ -50,10 +52,17 @@ public class HomeScreen extends AppCompatActivity{
             }
         });
 
-       // Intent intent = new Intent(this, LoginActivity.class);
-       // startActivity(intent);
+        btn_produk = (Button) findViewById(R.id.produk);
+        btn_produk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent panggil = new Intent(HomeScreen.this, Produk.class);
+                startActivity(panggil);
+            }
+        });
 
-
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
 
     }
 
@@ -73,9 +82,15 @@ public class HomeScreen extends AppCompatActivity{
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            pengaturan();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void pengaturan(){
+        Intent callme = new Intent(HomeScreen.this, Pengaturan.class);
+        startActivity(callme);
     }
 }
