@@ -41,9 +41,9 @@ public class EditdataPribadi extends AppCompatActivity {
 
     private Spinner spinnerbank;
 
-    EditText txtnama, txthp, txtalamat, txtkodepos, txtemail, txtrek, txtpemilik, txtcabang;
-    String get_nama, get_hp, get_alamat, get_kodepos, get_email, get_rek, get_pemilik, get_cabang;
-    String var_nama, var_hp, var_alamat, var_kodepos, var_email, var_rek,var_pemilik, var_cabang;
+    EditText txtnama, txthp, txtalamat, txtkodepos, txtemail, txtrek, txtpemilik, txtcabang, txtwa, txtpinbb;
+    String get_nama, get_hp, get_alamat, get_kodepos, get_email, get_rek, get_pemilik, get_cabang, get_wa, get_pinbb;
+    String var_nama, var_hp, var_alamat, var_kodepos, var_email, var_rek,var_pemilik, var_cabang, var_wa, var_pinbb;
 
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"(),:;<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
     private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
@@ -64,6 +64,9 @@ public class EditdataPribadi extends AppCompatActivity {
         txthp = (EditText) findViewById(R.id.edithp);
         txtalamat = (EditText) findViewById(R.id.editalamat);
         txtkodepos = (EditText) findViewById(R.id.editkodepos);
+        txtwa = (EditText) findViewById(R.id.editwa);
+        txtpinbb = (EditText) findViewById(R.id.editbb);
+
         Spinner mSpinner= (Spinner)findViewById(R.id.spinregional);
         Spinner pSpinner= (Spinner)findViewById(R.id.spinprov);
         Spinner kSpinner= (Spinner)findViewById(R.id.spinkec);
@@ -100,12 +103,16 @@ public class EditdataPribadi extends AppCompatActivity {
         get_hp = b.getString("panggil_hp");
         get_alamat = b.getString("panggil_alamat");
         get_kodepos = b.getString("panggil_kodepos");
+        get_wa = b.getString("panggil_wa");
+        get_pinbb = b.getString("panggil_pinbb");
 
         txtnama.setText("" + get_nama);
         txtemail.setText("" + get_email);
         txthp.setText(""+ get_hp);
         txtkodepos.setText(""+ get_kodepos);
         txtalamat.setText("" + get_alamat);
+        txtwa.setText(""+ get_wa);
+        txtpinbb.setText(""+ get_pinbb);
 
     }
 
@@ -231,6 +238,8 @@ public class EditdataPribadi extends AppCompatActivity {
         var_alamat = txtalamat.getText().toString();
         var_hp = txthp.getText().toString();
         var_kodepos = txtkodepos.getText().toString();
+        var_wa = txtwa.getText().toString();
+        var_pinbb = txtpinbb.getText().toString();
 
         Intent parsing = null;
         parsing = new Intent(EditdataPribadi.this, TampilanPribadi.class);
@@ -240,6 +249,8 @@ public class EditdataPribadi extends AppCompatActivity {
         bb.putString("panggilhp", var_hp);
         bb.putString("panggilalamat", var_alamat);
         bb.putString("panggilkodepos", var_kodepos);
+        bb.putString("panggilwa", var_wa);
+        bb.putString("panggilpinbb", var_pinbb);
         parsing.putExtras(bb);
         startActivity(parsing);
         Toast.makeText(EditdataPribadi.this, "Update Data Pribadi berhasil", Toast.LENGTH_SHORT).show();

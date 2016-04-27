@@ -13,9 +13,9 @@ public class TampilanPribadi extends AppCompatActivity {
 
     Button edit;
 
-    EditText txtnama, txthp, txtalamat, txtkodepos, txtemail;
-    String var_nama, var_hp, var_alamat, var_kodepos, var_email = "";
-    String get_nama, get_hp, get_alamat, get_kodepos, get_email = "";
+    EditText txtnama, txthp, txtalamat, txtkodepos, txtemail, txtwa, txtpinbb, txtregional;
+    String var_nama, var_hp, var_alamat, var_kodepos, var_email, var_wa, var_pinbb, var_regional = "";
+    String get_nama, get_hp, get_alamat, get_kodepos, get_email, get_wa, get_pinbb, get_regional = "";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +28,9 @@ public class TampilanPribadi extends AppCompatActivity {
         txthp = (EditText) findViewById(R.id.nohp);
         txtalamat = (EditText) findViewById(R.id.alamat);
         txtkodepos = (EditText) findViewById(R.id.kodepos);
+        txtwa = (EditText) findViewById(R.id.whatsapp);
+        txtpinbb = (EditText) findViewById(R.id.pinbb);
+        txtregional = (EditText) findViewById(R.id.regiyonal);
 
 
         Bundle bb = getIntent().getExtras();
@@ -44,12 +47,21 @@ public class TampilanPribadi extends AppCompatActivity {
                 get_hp = bb.getString("panggilhp");
             if (bb.containsKey("panggilkodepos"))
                 get_kodepos = bb.getString("panggilkodepos");
+            if (bb.containsKey("panggilwa"))
+                get_wa = bb.getString("panggilwa");
+            if (bb.containsKey("panggilpinbb"))
+                get_wa = bb.getString("panggilpinbb");
+            if (bb.containsKey("panggilregional"));
+                get_regional = bb.getString("panggilregional");
         }
         txtnama.setText("" + get_nama);
         txthp.setText("" + get_hp);
         txtemail.setText("" + get_email);
         txtalamat.setText("" + get_alamat);
         txtkodepos.setText("" + get_kodepos);
+        txtwa.setText("" + get_wa);
+        txtpinbb.setText("" + get_pinbb);
+        txtregional.setText("" + get_regional);
 
         edit = (Button) findViewById(R.id.edit);
         edit.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +73,9 @@ public class TampilanPribadi extends AppCompatActivity {
                 var_email = txtalamat.getText().toString();
                 var_hp = txthp.getText().toString();
                 var_kodepos = txtkodepos.getText().toString();
+                var_wa = txtwa.getText().toString();
+                var_pinbb = txtpinbb.getText().toString();
+                var_regional = txtregional.getText().toString();
 
                 Intent i = null;
                 i = new Intent(TampilanPribadi.this, EditdataPribadi.class);
@@ -70,6 +85,9 @@ public class TampilanPribadi extends AppCompatActivity {
                 b.putString("panggil_hp", var_hp);
                 b.putString("panggil_alamat", var_alamat);
                 b.putString("panggil_kodepos", var_kodepos);
+                b.putString("panggil_wa", var_wa);
+                b.putString("panggil_pinbb", var_pinbb);
+                b.putString("panggil_regional", var_regional);
                 i.putExtras(b);
                 startActivity(i);
             }
