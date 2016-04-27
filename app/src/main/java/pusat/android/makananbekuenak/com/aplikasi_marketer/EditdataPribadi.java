@@ -56,6 +56,8 @@ public class EditdataPribadi extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.editdatapribadi);
 
+        getSupportActionBar().setTitle("EDIT DATA PRIBADI");
+
 
         txtemail = (EditText) findViewById(R.id.editemail);
         txtnama = (EditText) findViewById(R.id.editnama);

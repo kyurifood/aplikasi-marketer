@@ -16,6 +16,11 @@ public class Pengaturan extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_pengaturan);
 
+        getSupportActionBar().setTitle(" PENGATURAN");
+        getSupportActionBar().setLogo(R.drawable.black_ic_cogwheel);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         b_info = (Button) findViewById(R.id.info_pribadi);
         b_notifikasi = (Button) findViewById(R.id.notifkasi);
         b_password = (Button) findViewById(R.id.ganti_password);

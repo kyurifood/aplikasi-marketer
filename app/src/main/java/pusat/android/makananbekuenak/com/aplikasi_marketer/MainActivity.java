@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().setTitle("STATUS ORDER");
+
         List<Item_pesanan> items = new ArrayList<>();
         Item_pesanan item1 = new Item_pesanan();
         item1.setNo_order("001");

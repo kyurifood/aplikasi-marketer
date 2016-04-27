@@ -43,6 +43,8 @@ public class Entry_Order extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.entry_order);
 
+        getSupportActionBar().setTitle("ENTRI PESANAN");
+
         //Generate list View from Arraylist
         displayListView();
 
