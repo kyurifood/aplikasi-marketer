@@ -122,18 +122,18 @@
         <LinearLayout style="@style/ComponentLayout"
             android:orientation="vertical"
             android:layout_weight="1">
-            <Button style="@style/OrangeButton"
+            <Button style="@style/Hijau"
                 android:text="LIHAT DETAIL"
                 android:id="@+id/btn_action_1"/>
         </LinearLayout>
 
-        <LinearLayout style="@style/ComponentLayout"
-            android:orientation="vertical"
-            android:layout_weight="1">
-        <Button style="@style/TealButton"
-            android:text="LUNAS"
-            android:id="@+id/btn_action_2"/>
-        </LinearLayout>
+        <!--<LinearLayout style="@style/ComponentLayout"-->
+            <!--android:orientation="vertical"-->
+            <!--android:layout_weight="1">-->
+        <!--<Button style="@style/TealButton"-->
+            <!--android:text="LUNAS"-->
+            <!--android:id="@+id/btn_action_2"/>-->
+        <!--</LinearLayout>-->
 
     </LinearLayout>
 
