@@ -118,7 +118,7 @@
             android:layout_weight="0.5"
             android:enabled="false"
             android:textColor="@color/black"
-            android:id="@+id/pinbb"/>
+            android:id="@+id/dispinbb"/>
     </LinearLayout>
 
     <LinearLayout
