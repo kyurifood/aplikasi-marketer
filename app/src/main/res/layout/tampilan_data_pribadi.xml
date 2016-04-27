@@ -355,8 +355,7 @@
 
         <Button style="@style/RedButton"
             android:text="Kembali"
-            android:id="@+id/kemba"
-            android:onClick="btn_kmbali"/>
+            android:id="@+id/kemba"/>
 
     </LinearLayout>
 </LinearLayout>

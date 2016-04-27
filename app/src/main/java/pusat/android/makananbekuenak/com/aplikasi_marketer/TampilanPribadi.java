@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class TampilanPribadi extends AppCompatActivity {
 
-    Button edit;
+    Button edit, back;
 
     EditText txtnama, txthp, txtalamat, txtkodepos, txtemail, txtwa, txtpinbb, txtregional;
     String var_nama, var_hp, var_alamat, var_kodepos, var_email, var_wa, var_pinbb, var_regional = "";
@@ -31,6 +31,15 @@ public class TampilanPribadi extends AppCompatActivity {
         txtwa = (EditText) findViewById(R.id.whatsapp);
         txtpinbb = (EditText) findViewById(R.id.dispinbb);
         txtregional = (EditText) findViewById(R.id.regiyonal);
+
+        back = (Button) findViewById(R.id.kemba);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent panggil = new Intent(getApplicationContext(), Pengaturan.class);
+                startActivity(panggil);
+            }
+        });
 
 
         Bundle bb = getIntent().getExtras();
