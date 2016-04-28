@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:text="Satuan"
-        android:id="@+id/ext"
+        android:id="@+id/satuan"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/textView4"
         android:layout_alignEnd="@+id/textView4" />
@@ -84,16 +84,14 @@
         android:id="@+id/tambahproduk"
         android:layout_alignTop="@+id/kurang"
         android:layout_toLeftOf="@+id/kurang"
-        android:layout_toStartOf="@+id/kurang"
-        android:onClick="integerMax"/>
+        android:layout_toStartOf="@+id/kurang"/>
 
-    <EditText
+   <TextView
         android:layout_width="80sp"
         android:layout_height="wrap_content"
-        android:inputType="phone"
         android:textSize="20dp"
+        android:text="0"
         android:id="@+id/jumlah"
-        android:text="Jumlah"
         android:layout_alignBottom="@+id/tambahproduk"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />

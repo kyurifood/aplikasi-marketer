@@ -54,6 +54,8 @@ public class RegistrasiMarketer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registrasi_marketer);
 
+        getSupportActionBar().setTitle("Form Pendaftaran");
+
 
         txtpas = (EditText)findViewById(R.id.pasword);
         //txtcpas = (EditText)findViewById(R.id.cpasword);

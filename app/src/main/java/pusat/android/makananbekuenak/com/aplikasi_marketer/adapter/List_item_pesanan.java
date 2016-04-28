@@ -21,7 +21,7 @@ import pusat.android.makananbekuenak.com.aplikasi_marketer.domain.Item_pesanan;
 /**
  * Created by opaw on 3/30/16.
  */
-public class List_item_pesanan extends BaseAdapter {
+public class    List_item_pesanan extends BaseAdapter {
     public Context context;
     private List<Item_pesanan> items;
 
@@ -80,18 +80,7 @@ public class List_item_pesanan extends BaseAdapter {
 //            }
 //        });
 
-
-
-
         return convertView;
     }
 
-
-
-    public void unselectAllItems(){
-        for (int i = 0; i < items.size(); i++){
-            Item_pesanan item = items.get(i);
-            item.setSelected(false);
-        }
-    }
 }
