@@ -29,10 +29,19 @@ public class TampilanPribadi extends AppCompatActivity {
         txtalamat = (EditText) findViewById(R.id.alamat);
         txtkodepos = (EditText) findViewById(R.id.kodepos);
         txtwa = (EditText) findViewById(R.id.whatsapp);
-        txtpinbb = (EditText) findViewById(R.id.pinbb);
+        txtpinbb = (EditText) findViewById(R.id.dispinbb);
         txtregional = (EditText) findViewById(R.id.regiyonal);
         back = (Button) findViewById(R.id.kembali);
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent panggil = new Intent(getApplicationContext(), Pengaturan.class);
+                startActivity(panggil);
+            }
+        });
+
+        back = (Button) findViewById(R.id.kembali);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +68,7 @@ public class TampilanPribadi extends AppCompatActivity {
             if (bb.containsKey("panggilwa"))
                 get_wa = bb.getString("panggilwa");
             if (bb.containsKey("panggilpinbb"))
-                get_wa = bb.getString("panggilpinbb");
+                get_pinbb = bb.getString("panggilpinbb");
             if (bb.containsKey("panggilregional"));
                 get_regional = bb.getString("panggilregional");
         }

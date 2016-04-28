@@ -108,11 +108,11 @@ public class EditdataPribadi extends AppCompatActivity {
 
         txtnama.setText("" + get_nama);
         txtemail.setText("" + get_email);
-        txthp.setText(""+ get_hp);
-        txtkodepos.setText(""+ get_kodepos);
+        txthp.setText("" + get_hp);
+        txtkodepos.setText("" + get_kodepos);
         txtalamat.setText("" + get_alamat);
-        txtwa.setText(""+ get_wa);
-        txtpinbb.setText(""+ get_pinbb);
+        txtwa.setText("" + get_wa);
+        txtpinbb.setText("" + get_pinbb);
 
     }
 
