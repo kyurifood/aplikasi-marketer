@@ -6,16 +6,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.util.List;
 
+import pusat.android.makananbekuenak.com.aplikasi_marketer.Entry_Order;
 import pusat.android.makananbekuenak.com.aplikasi_marketer.R;
 import pusat.android.makananbekuenak.com.aplikasi_marketer.domain.ItemEntry_Order;
 
 /**
  * Created by gilang on 28/04/16.
  */
+
 public class List_item_order extends BaseAdapter {
 
     public Context context;
@@ -52,14 +55,15 @@ public class List_item_order extends BaseAdapter {
         TextView nama_produk = (TextView) orderView.findViewById(R.id.nama_produk);
         TextView harga_produk = (TextView) orderView.findViewById(R.id.price);
         final TextView jumah_produk = (TextView) orderView.findViewById(R.id.jumlah);
-        Button tambah_produk = (Button) orderView.findViewById(R.id.tambahproduk);
-        Button kurang_produk = (Button) orderView.findViewById(R.id.kurang);
+        final Button tambah_produk = (Button) orderView.findViewById(R.id.tambahproduk);
+        final Button kurang_produk = (Button) orderView.findViewById(R.id.kurang);
+        final CheckBox cek = (CheckBox) orderView.findViewById(R.id.cekTotal);
+        final TextView satuan = (TextView) orderView.findViewById(R.id.satuan);
 
         kd_produk.setText(item.getKode());
         nama_produk.setText(item.getNama());
-//        harga_produk.setText("$" + item.getHarga());
-        harga_produk.setText("$" + item.getPrice());
-        jumah_produk.setText("" + item.getJumlah());
+        harga_produk.setText("Rp." + item.getPrice());
+
 
         tambah_produk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +71,15 @@ public class List_item_order extends BaseAdapter {
                 Integer i = Integer.valueOf(jumah_produk.getText().toString());
                 i = i + 1;
                 jumah_produk.setText(String.valueOf(i));
-
+                kurang_produk.setEnabled(true);
+                if (jumah_produk.getText() != jumah_produk) {
+                    Integer tambah = i * item.getPrice();
+                    satuan.setText(String.valueOf(tambah));
+                    item.setSatuan(Integer.valueOf(tambah));
+                    cek.setEnabled(true);
+                } else {
+                    satuan.setText(String.valueOf(""));
+                }
             }
         });
 
@@ -75,8 +87,36 @@ public class List_item_order extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Integer i = Integer.valueOf(jumah_produk.getText().toString());
-                i = i - 1;
-                jumah_produk.setText(String.valueOf(i));
+                if (i <= 0) {
+                    kurang_produk.setEnabled(false);
+                    cek.setEnabled(false);
+                } else {
+                    i = i - 1;
+                    jumah_produk.setText(String.valueOf(i));
+                    if (jumah_produk.getText() != jumah_produk) {
+                        Integer kurang = i * item.getPrice();
+                        satuan.setText(String.valueOf(kurang));
+                        item.setSatuan(Integer.valueOf(kurang));
+                    } else {
+                        satuan.setText(String.valueOf(""));
+                    }
+                }
+
+            }
+        });
+
+        cek.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (cek.isChecked() == true) {
+                    ((Entry_Order) context).cekTotal(item);
+                    kurang_produk.setEnabled(false);
+                    tambah_produk.setEnabled(false);
+                } else {
+                    ((Entry_Order) context).uncekTotal(item);
+                    kurang_produk.setEnabled(true);
+                    tambah_produk.setEnabled(true);
+                }
             }
         });
 

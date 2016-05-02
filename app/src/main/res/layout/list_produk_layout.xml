@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20dp"
-        android:text="Satuan"
+        android:text="0"
         android:id="@+id/satuan"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/textView4"
@@ -59,8 +59,8 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/checkBox"
-        android:checked="false"
+        android:id="@+id/cekTotal"
+        android:enabled="false"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />

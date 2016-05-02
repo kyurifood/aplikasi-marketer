@@ -5,14 +5,40 @@ import java.text.DecimalFormat;
 /**
  * Created by chitoz on 4/21/16.
  */
+
 public class ItemEntry_Order {
 
     private String Kode;
     private String Nama;
     private int jumlah = 0;
-    private Double satuan = 0.00;
-    private Double price = 0.00;
     private DecimalFormat harga;
+    private boolean cek;
+    private int price;
+    private int satuan;
+
+    public int getSatuan() {
+        return satuan;
+    }
+
+    public void setSatuan(int satuan) {
+        this.satuan = satuan;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public boolean isCek() {
+        return cek;
+    }
+
+    public void setCek(boolean cek) {
+        this.cek = cek;
+    }
 
     public DecimalFormat getHarga() {
         return harga;
@@ -20,22 +46,6 @@ public class ItemEntry_Order {
 
     public void setHarga(DecimalFormat harga) {
         this.harga = harga;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public Double getSatuan() {
-        return satuan;
-    }
-
-    public void setSatuan(Double satuan) {
-        this.satuan = satuan;
     }
 
     public int getJumlah() {

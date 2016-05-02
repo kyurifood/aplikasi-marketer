@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -15,11 +16,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pusat.android.makananbekuenak.com.aplikasi_marketer.adapter.List_item_order;
+import pusat.android.makananbekuenak.com.aplikasi_marketer.domain.Item;
 import pusat.android.makananbekuenak.com.aplikasi_marketer.domain.ItemEntry_Order;
 
 public class Entry_Order extends AppCompatActivity {
 
-    int minteger = 0;
+    int tot = 0;
 
     private String[] Regional_L = { "Jakarta", "Bogor", "Bekasi", "Tanggerang", "Depok" };
 
@@ -88,10 +90,10 @@ public class Entry_Order extends AppCompatActivity {
                     Distributor_L = new String[]{"-", "Iman", "Gilang", "Yanti"};
                 } else if (position == 5) {
                     Distributor_L = new String[]{"-", "Melda", "saida", "Budi"};
+
                 }
                 adapter_distributor = new ArrayAdapter<String>(getApplicationContext(), R.layout.simple_list_layout, Distributor_L);
                 sp_distributor.setAdapter(adapter_distributor);
-
             }
 
             @Override
@@ -104,17 +106,17 @@ public class Entry_Order extends AppCompatActivity {
         ItemEntry_Order item1 = new ItemEntry_Order();
         item1.setKode("001");
         item1.setNama("Karapao 1");
-        item1.setPrice(10.00);
+        item1.setPrice(1000);
 
         ItemEntry_Order item2 = new ItemEntry_Order();
         item2.setKode("002");
         item2.setNama("Karapao 2");
-        item2.setPrice(20.00);
+        item2.setPrice(2000);
 
         ItemEntry_Order item3 = new ItemEntry_Order();
         item3.setKode("003");
         item3.setNama("Karapao 3");
-        item3.setPrice(30.00);
+        item3.setPrice(3000);
 
         items.add(item1);
         items.add(item2);
@@ -124,5 +126,19 @@ public class Entry_Order extends AppCompatActivity {
         adapter = new List_item_order(Entry_Order.this, items);
         ListOrder.setAdapter(adapter);
 
+    }
+
+    public void cekTotal(final ItemEntry_Order item){
+        TextView total = (TextView) findViewById(R.id.cariTotal);
+        total.setEnabled(true);
+        tot  += item.getSatuan();
+        total.setText("Rp." + String.valueOf(tot));
+    }
+
+    public void uncekTotal(final ItemEntry_Order item){
+        TextView total = (TextView) findViewById(R.id.cariTotal);
+        total.setEnabled(true);
+        tot  -= item.getSatuan();
+        total.setText("Rp." + String.valueOf(tot));
     }
 }
