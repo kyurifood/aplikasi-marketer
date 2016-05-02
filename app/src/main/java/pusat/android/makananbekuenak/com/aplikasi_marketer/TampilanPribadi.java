@@ -67,19 +67,19 @@ public class TampilanPribadi extends AppCompatActivity {
             if (bb.containsKey("panggilpinbb"))
                 get_pinbb = bb.getString("panggilpinbb");
             if(bb.containsKey("panggilregional"));
-                get_region = bb.getString("panggilregional");
+            get_region = bb.getString("panggilregional");
             if(bb.containsKey("panggilprovinsi"));
-                get_provinsi = bb.getString("panggilprovinsi");
+            get_provinsi = bb.getString("panggilprovinsi");
             if(bb.containsKey("panggilkecamatan"));
-                get_kecamatan = bb.getString("panggilkecamatan");
+            get_kecamatan = bb.getString("panggilkecamatan");
             if(bb.containsKey("panggilkelurahan"));
-                get_kelurahan = bb.getString("panggilkelurahan");
+            get_kelurahan = bb.getString("panggilkelurahan");
             if (bb.containsKey("panggilrek"));
-                get_rek = bb.getString("panggilrek");
+            get_rek = bb.getString("panggilrek");
             if (bb.containsKey("panggilpemilik"));
-                get_pemilik = bb.getString("panggilpemilik");
+            get_pemilik = bb.getString("panggilpemilik");
             if (bb.containsKey("panggilcabang"));
-                get_cabang = bb.getString("panggilcabang");
+            get_cabang = bb.getString("panggilcabang");
 
 
         }

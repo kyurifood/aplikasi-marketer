@@ -1,6 +1,5 @@
 package pusat.android.makananbekuenak.com.aplikasi_marketer;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -8,24 +7,21 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.text.DecimalFormat;
-import android.content.Context;
-import android.graphics.Color;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.Toast;
+import java.util.List;
+
+import pusat.android.makananbekuenak.com.aplikasi_marketer.adapter.List_item_order;
+import pusat.android.makananbekuenak.com.aplikasi_marketer.domain.Item;
+import pusat.android.makananbekuenak.com.aplikasi_marketer.domain.ItemEntry_Order;
 
 public class Entry_Order extends AppCompatActivity {
 
-    int minteger = 0;
+    int tot = 0;
 
     private String[] Regional_L = { "Jakarta", "Bogor", "Bekasi", "Tanggerang", "Depok" };
 
@@ -34,21 +30,16 @@ public class Entry_Order extends AppCompatActivity {
     Spinner sp_regional, sp_distributor;
     TextView v_distributor;
     ArrayAdapter<String> adapter_distributor;
-    private MyCustomAdapter dataAdapter = null;
-    private Double orderTotal = 0.00;
-    EditText displayInteger;
-    String txtJumlahTag;
+
+    List_item_order adapter;
+    ListView ListOrder;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.entry_order);
 
         getSupportActionBar().setTitle("ENTRI PESANAN");
-
-        //Generate list View from Arraylist
-        displayListView();
-
-
 
         System.out.println(Distributor_L);
 
@@ -64,7 +55,7 @@ public class Entry_Order extends AppCompatActivity {
         sp_distributor.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(position > 0){
+                if (position > 0) {
                     String view_regional = (String) sp_regional.getSelectedItem();
                     String view_distributor = (String) sp_distributor.getSelectedItem();
 
@@ -99,10 +90,10 @@ public class Entry_Order extends AppCompatActivity {
                     Distributor_L = new String[]{"-", "Iman", "Gilang", "Yanti"};
                 } else if (position == 5) {
                     Distributor_L = new String[]{"-", "Melda", "saida", "Budi"};
+
                 }
                 adapter_distributor = new ArrayAdapter<String>(getApplicationContext(), R.layout.simple_list_layout, Distributor_L);
                 sp_distributor.setAdapter(adapter_distributor);
-
             }
 
             @Override
@@ -111,180 +102,43 @@ public class Entry_Order extends AppCompatActivity {
             }
         });
 
+        List<ItemEntry_Order> items = new ArrayList<>();
+        ItemEntry_Order item1 = new ItemEntry_Order();
+        item1.setKode("001");
+        item1.setNama("Karapao 1");
+        item1.setPrice(1000);
+
+        ItemEntry_Order item2 = new ItemEntry_Order();
+        item2.setKode("002");
+        item2.setNama("Karapao 2");
+        item2.setPrice(2000);
+
+        ItemEntry_Order item3 = new ItemEntry_Order();
+        item3.setKode("003");
+        item3.setNama("Karapao 3");
+        item3.setPrice(3000);
+
+        items.add(item1);
+        items.add(item2);
+        items.add(item3);
+
+        ListOrder = (ListView) findViewById(R.id.listV_main);
+        adapter = new List_item_order(Entry_Order.this, items);
+        ListOrder.setAdapter(adapter);
+
     }
 
-    private void displayListView() {
-
-        //Array List of row
-        ArrayList<ItemEntry_Order> rowList = new ArrayList<ItemEntry_Order>();
-        ItemEntry_Order row_1 = new ItemEntry_Order("A01", "Karapao 1", 10.00);
-        rowList.add(row_1);
-        row_1 = new ItemEntry_Order("A02", "Karapao 2", 20.00);
-        rowList.add(row_1);
-        row_1 = new ItemEntry_Order("A03", "Karapao 3", 30.00);
-        rowList.add(row_1);
-        row_1 = new ItemEntry_Order("A04", "Karapao 4", 40.00);
-        rowList.add(row_1);
-
-        //create an ArrayAdapter from the String Array
-        dataAdapter = new MyCustomAdapter(this, R.layout.list_produk_layout, rowList);
-        ListView listView = (ListView) findViewById(R.id.listV_main);
-        listView.setAdapter(dataAdapter);
+    public void cekTotal(final ItemEntry_Order item){
+        TextView total = (TextView) findViewById(R.id.cariTotal);
+        total.setEnabled(true);
+        tot  += item.getSatuan();
+        total.setText("Rp." + String.valueOf(tot));
     }
 
-    private class MyCustomAdapter extends ArrayAdapter<ItemEntry_Order> {
-
-        private ArrayList<ItemEntry_Order> rowList;
-        View adapterView;
-        public MyCustomAdapter(Context context, int textViewResourceId,
-                               ArrayList<ItemEntry_Order> rowList) {
-            super(context, textViewResourceId, rowList);
-            this.rowList = new ArrayList<ItemEntry_Order>();
-            this.rowList.addAll(rowList);
-        }
-
-        @Override
-        public View getView(int position, View view, ViewGroup parent) {
-
-            DecimalFormat df = new DecimalFormat("0.00##");
-            ItemEntry_Order row_1 = rowList.get(position);
-            if (view == null) {
-                LayoutInflater vi = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                view = vi.inflate(R.layout.list_produk_layout, null);
-                adapterView = view;
-//                displayInteger = (EditText) view.findViewById(R.id.jumlah);
-//                txtJumlahTag = "txtjumlah" + String.valueOf(position);
-//                displayInteger.setTag(txtJumlahTag);
-//                displayInteger.addTextChangedListener(new MyTextWatcher(view, position));
-                if(position % 2 == 0){
-                    view.setBackgroundColor(Color.rgb(238, 233, 233));
-                }
-            }
-
-            final EditText jumlah = (EditText) view.findViewById(R.id.jumlah);
-            jumlah.setTag(row_1);
-            jumlah.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                }
-
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                }
-
-                @Override
-                public void afterTextChanged(Editable s) {
-                    DecimalFormat df = new DecimalFormat("0.00##");
-                    String jmlString = s.toString().trim();
-                    int x = jmlString.equals("") ? 0:Integer.valueOf(jmlString);
-                    Button Tambah = (Button) adapterView.findViewById(R.id.tambahproduk);
-                    Tambah.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-
-                            minteger = minteger + 1;
-                            jumlah.setText(String.valueOf(minteger));
-                        }
-                    });
-                    ItemEntry_Order row_1 = (ItemEntry_Order) jumlah.getTag();
-                    if(row_1.getJumlah() != x) {
-                        Double currPrice = row_1.getExt();
-                        Double extPrice = x * row_1.getPrice();
-                        Log.i("currPrice", row_1.getExt().toString());
-                        Log.i("extPrice", row_1.getPrice().toString());
-                        Double priceDiff = extPrice - currPrice;
-                        row_1.setJumlah(x);
-                        row_1.setExt(extPrice);
-                        TextView ext = (TextView) adapterView.findViewById(R.id.ext);
-                        if(row_1.getJumlah() != 0){ext.setText("$" + df.format(row_1.getExt()));}
-                        else {ext.setText("");}
-                        if(row_1.getJumlah() != 0){jumlah.setText(String.valueOf(row_1.getJumlah()));}
-                        else {jumlah.setText("");}
-                        orderTotal += priceDiff;
-                        TextView cariTotal = (TextView) findViewById(R.id.cariTotal);
-                        cariTotal.setText(df.format(orderTotal));}
-                }
-            });
-            if(row_1.getJumlah() != 0){
-                jumlah.setText(String.valueOf(row_1.getJumlah()));
-            }
-            else {
-                jumlah.setText("");
-            }
-
-            TextView kd_produk = (TextView) view.findViewById(R.id.kd_produk);
-            kd_produk.setText(row_1.getKd_produk());
-
-            TextView nama_produk = (TextView) view.findViewById(R.id.nama_produk);
-            nama_produk.setText(row_1.getNama_produk());
-
-            TextView price = (TextView) view.findViewById(R.id.price);
-            price.setText("$" + df.format(row_1.getPrice()));
-
-            TextView ext = (TextView) view.findViewById(R.id.ext);
-            if(row_1.getJumlah() != 0){
-                ext.setText("$" + df.format(row_1.getExt()));
-            }
-            else {
-                ext.setText("");
-            }
-            return view;
-        }
-    }
-
-    private class MyTextWatcher implements TextWatcher{
-
-        private View view;
-//        String jumlahTag;
-        private MyTextWatcher(View view) {
-            this.view = view;
-//            jumlahTag = "txtjumlah" + String.valueOf(position);
-        }
-
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            //do nothing
-        }
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-            //do nothing
-        }
-        public void afterTextChanged(Editable s) {
-            DecimalFormat df = new DecimalFormat("0.00##");
-            String jmlString = s.toString().trim();
-            int jumlah = jmlString.equals("") ? 0:Integer.valueOf(jmlString);
-            final EditText jmlView = (EditText) view.findViewById(R.id.jumlah);
-            Button Tambah = (Button) view.findViewById(R.id.tambahproduk);
-            Tambah.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    minteger = minteger + 1;
-                    jmlView.setText(minteger);
-                }
-            });
-            ItemEntry_Order row_1 = (ItemEntry_Order) jmlView.getTag();
-            if(row_1.getJumlah() != jumlah) {
-                Double currPrice = row_1.getExt();
-                Double extPrice = jumlah * row_1.getPrice();
-                Log.i("currPrice", row_1.getExt().toString());
-                Log.i("extPrice", row_1.getPrice().toString());
-                Double priceDiff = extPrice - currPrice;
-                row_1.setJumlah(jumlah);
-                row_1.setExt(extPrice);
-                TextView ext = (TextView) view.findViewById(R.id.ext);
-                if(row_1.getJumlah() != 0){ext.setText("$" + df.format(row_1.getExt()));}
-                else {ext.setText("");}
-                if(row_1.getJumlah() != 0){jmlView.setText(String.valueOf(row_1.getJumlah()));}
-                else {jmlView.setText("");}
-                orderTotal += priceDiff;
-                TextView cariTotal = (TextView) findViewById(R.id.cariTotal);
-                cariTotal.setText(df.format(orderTotal));}
-        }
-//        private void display(EditText txtJumlah,int number) {
-//            EditText txtJumlah = (EditText) v;
-//            txtJumlah.setText("" + number);
-//
-//        }
+    public void uncekTotal(final ItemEntry_Order item){
+        TextView total = (TextView) findViewById(R.id.cariTotal);
+        total.setEnabled(true);
+        tot  -= item.getSatuan();
+        total.setText("Rp." + String.valueOf(tot));
     }
 }
