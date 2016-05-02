@@ -62,6 +62,8 @@ public class EditdataPribadi extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.editdatapribadi);
 
+        getSupportActionBar().setTitle("Edit Data Pribadi");
+
         System.out.println(Provinsi_List);
         System.out.println(Kecamatan_List);
         System.out.println(Kelurahan_List);
