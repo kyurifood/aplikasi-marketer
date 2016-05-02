@@ -12,10 +12,10 @@
         android:layout_marginLeft="13dp">
 
         <Button
+            style="@style/Hijau"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Status Order"
-            android:textStyle="bold"
             android:id="@+id/sts_order"
             android:layout_gravity="center_horizontal" />
 
@@ -27,10 +27,10 @@
         android:layout_marginLeft="13dp">
 
         <Button
+            style="@style/Hijau"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Entri Pesanan"
-            android:textStyle="bold"
             android:id="@+id/entry_pesan"
             android:layout_gravity="center_horizontal" />
 

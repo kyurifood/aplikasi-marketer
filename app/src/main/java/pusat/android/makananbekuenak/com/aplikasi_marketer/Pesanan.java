@@ -18,7 +18,10 @@ public class Pesanan extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_pesanan);
 
-            getSupportActionBar().setIcon(R.drawable.ic_pesanan);
+            getSupportActionBar().setTitle(" PESANAN");
+            getSupportActionBar().setLogo(R.drawable.black_ic_trolley);
+            getSupportActionBar().setDisplayUseLogoEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
 
             btn_order = (Button) findViewById(R.id.sts_order);
 

@@ -12,17 +12,57 @@ import android.widget.Button;
 import pusat.android.makananbekuenak.com.aplikasi_marketer.Pengaturan;
 
 public class HomeScreen extends AppCompatActivity{
+
+    Button btn_pesanan , btn_pengaturan , btn_laporan , btn_produk , btn_kotakmasuk;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
 
+        getSupportActionBar().setTitle("Marketer");
 
+        btn_pesanan = (Button) findViewById(R.id.pesanana);
+        btn_pesanan.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
 
-       // Intent intent = new Intent(this, LoginActivity.class);
-       // startActivity(intent);
+                Intent myIntent = new Intent(HomeScreen.this,
+                        Pesanan.class);
+                startActivity(myIntent);
+            }
+        });
 
+        btn_laporan = (Button) findViewById(R.id.laporan);
+        btn_laporan.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
 
+                Intent myIntent = new Intent(HomeScreen.this,
+                        Laporan.class);
+                startActivity(myIntent);
+            }
+        });
+
+        btn_pengaturan = (Button) findViewById(R.id.pengaturan);
+        btn_pengaturan.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                Intent myIntent = new Intent(HomeScreen.this,
+                        Pengaturan.class);
+                startActivity(myIntent);
+            }
+        });
+
+        btn_produk = (Button) findViewById(R.id.produk);
+        btn_produk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent panggil = new Intent(HomeScreen.this, Produk.class);
+                startActivity(panggil);
+            }
+        });
+
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
 
     }
 
@@ -42,32 +82,15 @@ public class HomeScreen extends AppCompatActivity{
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            pengaturan();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    //--Pengaturan--
-    public void btn_pengaturan(View v) {
-
-        Intent panggil_class = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_marketer.Pengaturan.class);
-        startActivity(panggil_class);
+    public void pengaturan(){
+        Intent callme = new Intent(HomeScreen.this, Pengaturan.class);
+        startActivity(callme);
     }
-
-    //--Laporan--
-    public void btn_laporan(View v) {
-
-        Intent panggil_class = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_marketer.Laporan.class);
-        startActivity(panggil_class);
-    }
-
-    //--Pesanan--
-    public void btn_pesanan(View v) {
-
-        Intent panggil_class = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_marketer.Pesanan.class);
-        startActivity(panggil_class);
-
-    }
-
 }

@@ -21,8 +21,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textSize="20dp"
-            android:text="$ 0.00"
-            android:layout_weight="1"/>
+            android:inputType="numberDecimal"
+            android:text="0"
+            android:layout_weight="1"
+            android:enabled="false"/>
 
         <Button
             android:id="@+id/cancel"

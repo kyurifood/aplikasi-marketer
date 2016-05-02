@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ import pusat.android.makananbekuenak.com.aplikasi_marketer.domain.Item_pesanan;
 /**
  * Created by opaw on 3/30/16.
  */
+
 public class List_item_pesanan extends BaseAdapter {
 
     String var_nama, var_tanggal, var_kode, var_bank, var_nominal, var_regional, var_distributor, var_marketer,
@@ -66,7 +68,9 @@ public class List_item_pesanan extends BaseAdapter {
 
 
         Button btnAction1 = (Button) convertView.findViewById(R.id.btn_action_1);
-        Button btnAction2 = (Button) convertView.findViewById(R.id.btn_action_2);
+//        Button btnAction2 = (Button) convertView.findViewById(R.id.btn_action_2);
+        final CheckBox lunas = (CheckBox) convertView.findViewById(R.id.cb_lunas);
+        CheckBox baru = (CheckBox) convertView.findViewById(R.id.cb_baru);
 
 
         no_order.setText(item.getNo_order());
@@ -76,7 +80,8 @@ public class List_item_pesanan extends BaseAdapter {
         nominal.setText(item.getNominal());
 
 
-        btnAction2.setOnClickListener(new View.OnClickListener() {
+
+        btnAction1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, item.getNo_order(), Toast.LENGTH_SHORT).show();
@@ -128,15 +133,16 @@ public class List_item_pesanan extends BaseAdapter {
 
 
 
+//        btnAction2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                lunas.setChecked(true);
+//                Toast.makeText(context, item.getNo_order() + ", Lunas", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
         return convertView;
     }
 
-
-
-    public void unselectAllItems(){
-        for (int i = 0; i < items.size(); i++){
-            Item_pesanan item = items.get(i);
-            item.setSelected(false);
-        }
-    }
 }
+

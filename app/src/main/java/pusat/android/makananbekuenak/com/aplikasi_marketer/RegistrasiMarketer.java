@@ -47,11 +47,14 @@ public class RegistrasiMarketer extends AppCompatActivity {
     private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
     private Matcher matcher;
 
+
     List<Item> items = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registrasi_marketer);
+
+        getSupportActionBar().setTitle("Form Pendaftaran");
 
 
         txtpas = (EditText)findViewById(R.id.pasword);
@@ -206,8 +209,6 @@ public class RegistrasiMarketer extends AppCompatActivity {
     }
 
 
-
-
     private void submitForm() {
         // Submit your form here. your form is valid
         Toast.makeText(RegistrasiMarketer.this, "registrasi berhasil", Toast.LENGTH_SHORT).show();
@@ -222,7 +223,7 @@ public class RegistrasiMarketer extends AppCompatActivity {
     public boolean validasiPass(String pass) {
         return pass.length() > 4;
     }
-//    public boolean validasiCPass(String cpass) {
+    //    public boolean validasiCPass(String cpass) {
 //        return cpass.length() > 0;
 //    }
     public boolean validateKode(String kode) {
