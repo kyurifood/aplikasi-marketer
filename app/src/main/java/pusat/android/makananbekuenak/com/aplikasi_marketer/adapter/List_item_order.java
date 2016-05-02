@@ -1,14 +1,18 @@
 package pusat.android.makananbekuenak.com.aplikasi_marketer.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pusat.android.makananbekuenak.com.aplikasi_marketer.Entry_Order;
@@ -19,24 +23,27 @@ import pusat.android.makananbekuenak.com.aplikasi_marketer.domain.ItemEntry_Orde
  * Created by gilang on 28/04/16.
  */
 
-public class List_item_order extends BaseAdapter {
+public class List_item_order extends BaseAdapter implements Filterable{
 
     public Context context;
     private List<ItemEntry_Order> items;
+    private List<ItemEntry_Order> filteredItem;
 
     public List_item_order(Context context, List<ItemEntry_Order> items) {
         this.context = context;
         this.items = items;
+        this.filteredItem = items;
     }
 
     @Override
     public int getCount() {
-        return items.size();
+        if(filteredItem==null)return 0;
+        else return filteredItem.size();
     }
 
     @Override
     public ItemEntry_Order getItem(int position) {
-        return items.get(position);
+        return filteredItem.get(position);
     }
 
     @Override
@@ -49,7 +56,7 @@ public class List_item_order extends BaseAdapter {
         if (orderView == null)
             orderView = LayoutInflater.from(context).inflate(R.layout.list_produk_layout, parent, false);
 
-        final ItemEntry_Order item = items.get(position);
+        final ItemEntry_Order item = filteredItem.get(position);
 
         TextView kd_produk = (TextView) orderView.findViewById(R.id.kd_produk);
         TextView nama_produk = (TextView) orderView.findViewById(R.id.nama_produk);
@@ -121,5 +128,41 @@ public class List_item_order extends BaseAdapter {
         });
 
         return orderView;
+    }
+
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                FilterResults filterResults = new FilterResults();
+                if(constraint!=null||constraint.length()>0){
+                    Log.i("const:",constraint.toString());
+                    ArrayList<ItemEntry_Order> result = new ArrayList<>();
+                    String strSearch = constraint.toString().toUpperCase();
+                    for (ItemEntry_Order o : items){
+                        Log.i("const:",strSearch);
+                        Log.i("data:",o.getRegional().toUpperCase());
+                        if(o.getRegional().toUpperCase().contains(strSearch))
+                            result.add(o);
+                        else if(o.getDistributor().toUpperCase().contains(strSearch))
+                            result.add(o);
+                    }
+
+                    filterResults.count=result.size();
+                    filterResults.values=result;
+
+                }
+
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                filteredItem = (ArrayList<ItemEntry_Order>) results.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 }

@@ -15,6 +15,24 @@ public class ItemEntry_Order {
     private boolean cek;
     private int price;
     private int satuan;
+    private String regional;
+    private  String distributor;
+
+    public String getRegional() {
+        return regional;
+    }
+
+    public void setRegional(String regional) {
+        this.regional = regional;
+    }
+
+    public String getDistributor() {
+        return distributor;
+    }
+
+    public void setDistributor(String distributor) {
+        this.distributor = distributor;
+    }
 
     public int getSatuan() {
         return satuan;
