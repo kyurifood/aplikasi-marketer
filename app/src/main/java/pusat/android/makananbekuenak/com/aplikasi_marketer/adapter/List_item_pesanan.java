@@ -68,10 +68,8 @@ public class List_item_pesanan extends BaseAdapter {
 
 
         Button btnAction1 = (Button) convertView.findViewById(R.id.btn_action_1);
-//        Button btnAction2 = (Button) convertView.findViewById(R.id.btn_action_2);
         final CheckBox lunas = (CheckBox) convertView.findViewById(R.id.cb_lunas);
         CheckBox baru = (CheckBox) convertView.findViewById(R.id.cb_baru);
-
 
         no_order.setText(item.getNo_order());
         tanggal_pesan.setText(item.getTanggal_pesan());
@@ -129,17 +127,6 @@ public class List_item_pesanan extends BaseAdapter {
                 context.startActivity(i);
             }
         });
-
-
-
-
-//        btnAction2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                lunas.setChecked(true);
-//                Toast.makeText(context, item.getNo_order() + ", Lunas", Toast.LENGTH_SHORT).show();
-//            }
-//        });
 
         return convertView;
     }
