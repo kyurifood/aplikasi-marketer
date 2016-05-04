@@ -259,6 +259,8 @@ public class EditdataPribadi extends AppCompatActivity {
 
         addNewItemDialogBuilder.setView(promptsView);
         addNewItemDialogBuilder.setCancelable(false);
+        addNewItemDialogBuilder.setTitle("Tambah Bank");
+        addNewItemDialogBuilder.setIcon(R.drawable.ic_mode_edit_black_24dp);
         addNewItemDialog = addNewItemDialogBuilder.create();
         addNewItemDialog.show();
     }
@@ -291,7 +293,7 @@ public class EditdataPribadi extends AppCompatActivity {
             public void onClick(View v) {
                 if (!hasError()) {
                     Item newitem = new Item();
-                    String s = (String)(spinnerbank.getSelectedItem());
+                    String s = (String) (spinnerbank.getSelectedItem());
                     newitem.setBank(s);
                     newitem.setRekening(txtrek.getText().toString());
                     newitem.setPemilik(txtpemilik.getText().toString());
@@ -312,6 +314,8 @@ public class EditdataPribadi extends AppCompatActivity {
 
         addNewItemDialogBuilder.setView(promptsView);
         addNewItemDialogBuilder.setCancelable(false);
+        addNewItemDialogBuilder.setTitle("Edit Bank");
+        addNewItemDialogBuilder.setIcon(R.drawable.ic_border_color_black_18dp);
         addNewItemDialog = addNewItemDialogBuilder.create();
         addNewItemDialog.show();
     }
