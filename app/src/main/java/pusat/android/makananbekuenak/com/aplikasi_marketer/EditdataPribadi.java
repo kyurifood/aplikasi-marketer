@@ -220,7 +220,7 @@ public class EditdataPribadi extends AppCompatActivity {
         txtcabang = (EditText) promptsView.findViewById(R.id.editText3);
         spinnerbank = (Spinner) promptsView.findViewById(R.id.spinnerbank);
 
-        mSpinner.setOnItemSelectedListener(new OnSpinnerItemClicked());
+        //mSpinner.setOnItemSelectedListener(new OnSpinnerItemClicked());
 
 
         Button save = (Button) promptsView.findViewById(R.id.ok);
@@ -239,7 +239,7 @@ public class EditdataPribadi extends AppCompatActivity {
 
                     if (adapter == null) {
                         items.add(item);
-                        adapter = new ListItem(EditdataPribadi.this, items);
+                        adapter = new ListItem(EditdataPribadi.this, items, "3");
                         lvItem.setAdapter(adapter);
                     } else {
                         adapter.addItem(item);
@@ -290,20 +290,13 @@ public class EditdataPribadi extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!hasError()) {
-                    Item item = new Item();
-                    String s = (String) (spinnerbank.getSelectedItem());
-                    item.setBank(s);
-                    item.setRekening(txtrek.getText().toString());
-                    item.setPemilik(txtpemilik.getText().toString());
-                    item.setCabang(txtcabang.getText().toString());
-
-                    if (adapter == null) {
-                        items.add(item);
-                        adapter = new ListItem(EditdataPribadi.this, items);
-                        lvItem.setAdapter(adapter);
-                    } else {
-                        adapter.addItem(item);
-                    }
+                    Item newitem = new Item();
+                    String s = (String)(spinnerbank.getSelectedItem());
+                    newitem.setBank(s);
+                    newitem.setRekening(txtrek.getText().toString());
+                    newitem.setPemilik(txtpemilik.getText().toString());
+                    newitem.setCabang(txtcabang.getText().toString());
+                    adapter.editItem(position, newitem);
                     addNewItemDialog.dismiss();
                 }
             }

@@ -27,6 +27,7 @@
                 android:id="@+id/spinnerbank"
                 android:prompt="@string/pk1"
                 android:entries="@array/pklist"
+                android:spinnerMode="dialog"
                 android:layout_below="@+id/textView8"/>
 
             <android.support.design.widget.TextInputLayout

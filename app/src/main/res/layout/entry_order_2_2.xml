@@ -41,9 +41,6 @@
 
     </LinearLayout>
 
-
-
-
     <ScrollView
         android:scrollbarSize="3dp"
         style="@style/scrollbar"

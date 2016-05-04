@@ -1,10 +1,11 @@
 package pusat.android.makananbekuenak.com.aplikasi_marketer;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,28 +17,28 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.List;
 
 import pusat.android.makananbekuenak.com.aplikasi_marketer.adapter.ListItem;
+import pusat.android.makananbekuenak.com.aplikasi_marketer.domain.Bank;
 import pusat.android.makananbekuenak.com.aplikasi_marketer.domain.Item;
 
-public class Entry_Order2 extends AppCompatActivity {
+public class Entry_Order2 extends AppCompatActivity  {
 
     private String[] Provinsi_List = {"Gorontalo", "Palu", "Makasar"};
     private String[] Kabupaten_List = {};
     private String[] Kecamatan_List = {};
     private String[] Kelurahan_List = {};
+    private Spinner regional;
 
     ListView lvItem;
+    ListItem adapter;
     Spinner L_Provinsi, L_Kabupaten, L_Kecamatan, L_Kelurahan;
     ArrayAdapter<String> adapter_kabupaten, adapter_kecamatan, adapter_kelurahan;
-    AlertDialog.Builder addNewItemDialogBuilder = null;
-    AlertDialog addNewItemDialog = null;
-    View promptsView;
-
-    private Spinner spinnerbank;
-
+    List<Item> items = new ArrayList<>();
+    Bank selectedBank;
 
     EditText txt_namacostumer, txt_nocostumer,txt_namapenerima, txtrek, txtpemilik, txtcabang, txt_nopenerima,txt_alamat, txt_kodepos;
     String get_namacostumer, get_nocostumer, get_namapenerima, get_nopenerima, get_alamat, get_kodepos, get_provinsi, get_kabupaten, get_kecamatan, get_kelurahan;
@@ -50,9 +51,13 @@ public class Entry_Order2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.entry_order_2_2);
 
+        getSupportActionBar().setTitle("Entri Order");
+
         System.out.println(Kabupaten_List);
         System.out.println(Kecamatan_List);
         System.out.println(Kelurahan_List);
+
+        Button next = (Button) findViewById(R.id.btn_next2);
 
         txt_namacostumer = (EditText) findViewById(R.id.nama_costumer);
         txt_nocostumer = (EditText) findViewById(R.id.no_penerima);
@@ -65,6 +70,14 @@ public class Entry_Order2 extends AppCompatActivity {
         L_Kabupaten = (Spinner) findViewById(R.id.spin_kabupaten);
         L_Kecamatan = (Spinner) findViewById(R.id.spin_kecamatan);
         L_Kelurahan = (Spinner) findViewById(R.id.spin_kelurahan);
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent panggil = new Intent(getApplicationContext(), Entry_Order3.class);
+                startActivity(panggil);
+            }
+        });
 
         ArrayAdapter<String> adapter_provinsi = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_dropdown_item, Provinsi_List);
@@ -149,23 +162,24 @@ public class Entry_Order2 extends AppCompatActivity {
             }
         });
 
-//        lvItem = (ListView) findViewById(R.id.lv_item);
+        lvItem = (ListView) findViewById(R.id.lv_item);
+
+        lvItem.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                v.getParent().requestDisallowInterceptTouchEvent(true);
+                return false;
+            }
+        });
 //
-//        lvItem.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                v.getParent().requestDisallowInterceptTouchEvent(true);
-//                return false;
-//            }
-//        });
-//
-//        Button addNewItem = (Button) findViewById(R.id.btnbank);
-//        addNewItem.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
+        Button addNewItem = (Button) findViewById(R.id.btnbank);
+        addNewItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 //                showAddDialog();
-//            }
-//        });
+                TambahBank();
+            }
+        });
 
 //        Bundle b = getIntent().getExtras();
 //        get_namacostumer = b.getString("panggil_namacostumer");
@@ -188,61 +202,127 @@ public class Entry_Order2 extends AppCompatActivity {
 
     }
 
-//    public void showAddDialog() {
-//        if (addNewItemDialogBuilder == null) {
-//            addNewItemDialogBuilder = new AlertDialog.Builder(Entry_Order2.this, R.style.DialogStyle);
-//        }
-//
-//        promptsView = LayoutInflater.from(Entry_Order2.this).inflate(R.layout.tambah_bank, null);
-//
-//
-//        final Spinner mSpinner = (Spinner) promptsView.findViewById(R.id.spinnerbank);
-//        txtrek = (EditText) promptsView.findViewById(R.id.editText);
-//        txtpemilik = (EditText) promptsView.findViewById(R.id.editText2);
-//        txtcabang = (EditText) promptsView.findViewById(R.id.editText3);
-//        spinnerbank = (Spinner) promptsView.findViewById(R.id.spinnerbank);
-//
-//        mSpinner.setOnItemSelectedListener(new OnSpinnerItemClicked());
-//
-//
-//        Button save = (Button) promptsView.findViewById(R.id.ok);
-//        save.setOnClickListener(new View.OnClickListener()
+    public void TambahBank(){
+        final Dialog dialog = new Dialog(this);
+        dialog.setTitle("Tambah Bank");
+        dialog.setContentView(R.layout.tambah_bank);
+        dialog.setCancelable(true);
+        dialog.show();
 
-//        {
-//            @Override
-//            public void onClick(View v) {
-//                if (!hasError()) {
-//                    Item item = new Item();
-//                    String s = (String) (spinnerbank.getSelectedItem());
-//                    item.setBank(s);
-//                    item.setRekening(txtrek.getText().toString());
-//                    item.setPemilik(txtpemilik.getText().toString());
-//                    item.setCabang(txtcabang.getText().toString());
-//
-//                    if (adapter == null) {
-//                        items.add(item);
-//                        adapter = new ListItem(EditdataPribadi.this, items);
-//                        lvItem.setAdapter(adapter);
-//                    } else {
-//                        adapter.addItem(item);
-//                    }
-//                    addNewItemDialog.dismiss();
-//                }
-//            }
-//        });
+//        Bank bank1 = new Bank();
+//        bank1.setId("1");
+//        bank1.setNama("Mandiri");
+//        Bank bank2 = new Bank();
+//        bank2.setId("2");
+//        bank2.setNama("BRI");
+//        Bank bank3 = new Bank();
+//        bank3.setId("3");
+//        bank3.setNama("Muamalat");
+//        List<Bank> banks = new ArrayList<>();
+//        banks.add(bank1);
+//        banks.add(bank2);
+//        banks.add(bank3);
+//        ArrayAdapter<Bank> arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, banks);
 
-//        Button cancel = (Button) promptsView.findViewById(R.id.cancel);
-//        cancel.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                addNewItemDialog.dismiss();
-//            }
-//        });
-//
-//        addNewItemDialogBuilder.setView(promptsView);
-//        addNewItemDialogBuilder.setCancelable(false);
-//        addNewItemDialog = addNewItemDialogBuilder.create();
-//        addNewItemDialog.show();
+        regional = (Spinner) dialog.findViewById(R.id.spinnerbank);
+//        regional.setAdapter(arrayAdapter);
+        txtrek = (EditText) dialog.findViewById(R.id.editText);
+        txtpemilik = (EditText) dialog.findViewById(R.id.editText2);
+        txtcabang = (EditText) dialog.findViewById(R.id.editText3);
+        Button simpan = (Button) dialog.findViewById(R.id.ok);
+        Button cancel = (Button) dialog.findViewById(R.id.cancel);
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+                Toast.makeText(Entry_Order2.this, "Tambah Bank Dibatalkan", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        simpan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!hasError()){
+                    Item item = new Item();
+                    String s = (String) (regional.getSelectedItem());
+                    item.setBank(s);
+                    item.setRekening(txtrek.getText().toString());
+                    item.setPemilik(txtpemilik.getText().toString());
+                    item.setCabang(txtcabang.getText().toString());
+                    if (adapter == null) {
+                        items.add(item);
+                        adapter = new ListItem(Entry_Order2.this, items, "2");
+                        lvItem.setAdapter(adapter);
+                    } else {
+                        adapter.addItem(item);
+                    }
+                    dialog.dismiss();
+                    Toast.makeText(Entry_Order2.this, "Data Bank Berhasil Ditambahkan", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    public void TambahBankEdit(final int position, Item item){
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.tambah_bank);
+        dialog.setTitle("Edit Bank");
+        dialog.setCancelable(true);
+        dialog.show();
+
+ //       Bank bank1 = new Bank();
+//        bank1.setId("1");
+//        bank1.setNama("Mandiri");
+//        Bank bank2 = new Bank();
+//        bank2.setId("2");
+//        bank2.setNama("BRI");
+//        Bank bank3 = new Bank();
+//        bank3.setId("3");
+//        bank3.setNama("Muamalat");
+//        List<Bank> banks = new ArrayList<>();
+//        banks.add(bank1);
+//        banks.add(bank2);
+//        banks.add(bank3);
+//        ArrayAdapter<Bank> arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, banks);
+
+        regional = (Spinner) dialog.findViewById(R.id.spinnerbank);
+//        regional.setAdapter(arrayAdapter);
+        txtpemilik = (EditText) dialog.findViewById(R.id.editText2);
+        txtrek = (EditText) dialog.findViewById(R.id.editText);
+        txtcabang = (EditText) dialog.findViewById(R.id.editText3);
+        Button simpan = (Button) dialog.findViewById(R.id.ok);
+        Button cancel = (Button) dialog.findViewById(R.id.cancel);
+
+        txtpemilik.setText(item.getPemilik());
+        txtrek.setText(item.getRekening());
+        txtcabang.setText(item.getCabang());
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+                Toast.makeText(Entry_Order2.this, "Update Dibatalkan", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        simpan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!hasError()){
+                    Item editItem = new Item();
+                    String s = (String) (regional.getSelectedItem());
+                    editItem.setBank(s);
+                    editItem.setPemilik(txtpemilik.getText().toString());
+                    editItem.setCabang(txtcabang.getText().toString());
+                    editItem.setRekening(txtrek.getText().toString());
+                    adapter.editItem(position, editItem);
+                    dialog.cancel();
+                    Toast.makeText(Entry_Order2.this, "Update Berhasil", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
 
     private void submitForm() {
         // Submit your form here. your form is valid
@@ -281,6 +361,23 @@ public class Entry_Order2 extends AppCompatActivity {
 
     public boolean validateNoCostumer(String nocostumer) {
         return nocostumer.length() > 0;
+    }
+
+    private boolean hasError(){
+        boolean isError = false;
+        if(TextUtils.isEmpty(txtrek.getText().toString())){
+            isError = true;
+            txtrek.setError("This field is required");
+        }
+        if(TextUtils.isEmpty(txtpemilik.getText().toString())){
+            isError = true;
+            txtpemilik.setError("This field is required");
+        }
+        if(TextUtils.isEmpty(txtcabang.getText().toString())){
+            isError = true;
+            txtcabang.setError("This field is required");
+        }
+        return isError;
     }
 
     @Override
@@ -322,4 +419,5 @@ public class Entry_Order2 extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }

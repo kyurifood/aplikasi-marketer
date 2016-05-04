@@ -4,14 +4,20 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import pusat.android.makananbekuenak.com.aplikasi_marketer.EditdataPribadi;
+import pusat.android.makananbekuenak.com.aplikasi_marketer.Entry_Order;
+import pusat.android.makananbekuenak.com.aplikasi_marketer.Entry_Order2;
 import pusat.android.makananbekuenak.com.aplikasi_marketer.R;
 import pusat.android.makananbekuenak.com.aplikasi_marketer.RegistrasiMarketer;
+import pusat.android.makananbekuenak.com.aplikasi_marketer.domain.Bank;
 import pusat.android.makananbekuenak.com.aplikasi_marketer.domain.Item;
 
 /**
@@ -20,11 +26,13 @@ import pusat.android.makananbekuenak.com.aplikasi_marketer.domain.Item;
 public class ListItem extends BaseAdapter {
     private Context context;
     private List<Item> items;
+    private String flag;
 
 
-    public ListItem(Context context, List<Item> items) {
+    public ListItem(Context context, List<Item> items, String flag) {
         this.context = context;
         this.items = items;
+        this.flag = flag;
     }
 
     @Override
@@ -57,6 +65,7 @@ public class ListItem extends BaseAdapter {
         TextView pemilik = (TextView)convertView.findViewById(R.id.list_item_nama);
         TextView cabang = (TextView)convertView.findViewById(R.id.list_item_cabang);
 
+
         bank.setText(item.getBank());
         rekening.setText(item.getRekening());
         pemilik.setText(item.getPemilik());
@@ -77,7 +86,13 @@ public class ListItem extends BaseAdapter {
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((RegistrasiMarketer) context).showEditDialog(position, item);
+                if (flag.equals("1")){
+                    ((RegistrasiMarketer) context).showEditDialog(position, item);
+                }else if (flag.equals("2")){
+                    ((Entry_Order2) context).TambahBankEdit(position, item);
+                }else {
+                    ((EditdataPribadi) context).showEditDialog(position, item);
+                }
             }
         });
 

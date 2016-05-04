@@ -15,6 +15,8 @@ public class Entry_Order3 extends AppCompatActivity {
         Button edit_belanja = (Button) findViewById(R.id.btn_edit_belanja);
         Button edit_pembeli = (Button) findViewById(R.id.btn_edit_pembeli);
 
+        getSupportActionBar().setTitle("Entri Order");
+
         Button proses = (Button) findViewById(R.id.btn_proses);
 
         edit_belanja.setOnClickListener(new View.OnClickListener() {

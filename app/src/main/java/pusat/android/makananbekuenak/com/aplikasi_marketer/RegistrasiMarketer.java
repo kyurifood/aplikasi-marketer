@@ -76,10 +76,6 @@ public class RegistrasiMarketer extends AppCompatActivity {
         lSpinner.setOnItemSelectedListener(new OnSpinnerItemClicked());
 
         lvItem = (ListView) findViewById(R.id.lv_item);
-//        ViewGroup.LayoutParams listViewParams = (ViewGroup.LayoutParams) lvItem.getLayoutParams();
-//        listViewParams.height = 360;
-//        lvItem.requestLayout();
-
         lvItem.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -87,6 +83,7 @@ public class RegistrasiMarketer extends AppCompatActivity {
                 return false;
             }
         });
+
         Button addNewItem = (Button) findViewById(R.id.btnbank);
         addNewItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,7 +126,7 @@ public class RegistrasiMarketer extends AppCompatActivity {
 
                     if (adapter == null) {
                         items.add(item);
-                        adapter = new ListItem(RegistrasiMarketer.this, items);
+                        adapter = new ListItem(RegistrasiMarketer.this, items, "1");
                         lvItem.setAdapter(adapter);
                     } else {
                         adapter.addItem(item);

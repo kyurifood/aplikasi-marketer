@@ -3,6 +3,7 @@ package pusat.android.makananbekuenak.com.aplikasi_marketer.domain;
 /**
  * Created by rinaldy on 06/04/16.
  */
+
 public class Item {
     private String bank;
     private String rekening;
