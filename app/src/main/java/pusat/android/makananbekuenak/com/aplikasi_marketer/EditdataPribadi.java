@@ -31,7 +31,7 @@ import pusat.android.makananbekuenak.com.aplikasi_marketer.domain.Item;
 
 public class EditdataPribadi extends AppCompatActivity {
 
-    private String[] Regional_List = {"sulawesi","bogor","DkiJakarta"};
+    private String[] Regional_List = {"sulawesi","Jawa","Sumatra"};
     private String[] Provinsi_List = {};
     private String[] Kecamatan_List = {};
     private String[] Kelurahan_List = {};
@@ -94,9 +94,9 @@ public class EditdataPribadi extends AppCompatActivity {
                     (Provinsi_List) = new String[]{"-", "Gorontalo", "Makassar", "Kendari"};
 
                 }else if (position == 1){
-                    Provinsi_List = new  String[]{"-","1","2","3"};
+                    Provinsi_List = new  String[]{"-","Jawa Barat","Jawa Tengah","Jakarta"};
                 }else if (position == 2){
-                    Provinsi_List = new  String[]{"-","4","5","6"};
+                    Provinsi_List = new  String[]{"-","Aceh","Lampung","Palembang"};
                 }
                 adapter_propinsi = new ArrayAdapter<String>(getApplicationContext(), R.layout.simple_list_layout, Provinsi_List);
                 L_Propinsi.setAdapter(adapter_propinsi);
