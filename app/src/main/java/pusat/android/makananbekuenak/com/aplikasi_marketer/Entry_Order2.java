@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -204,9 +205,11 @@ public class Entry_Order2 extends AppCompatActivity  {
 
     public void TambahBank(){
         final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_LEFT_ICON);
         dialog.setTitle("Tambah Bank");
         dialog.setContentView(R.layout.tambah_bank);
         dialog.setCancelable(true);
+        dialog.setFeatureDrawableResource(Window.FEATURE_LEFT_ICON, R.drawable.ic_mode_edit_black_24dp);
         dialog.show();
 
 //        Bank bank1 = new Bank();
@@ -266,9 +269,11 @@ public class Entry_Order2 extends AppCompatActivity  {
 
     public void TambahBankEdit(final int position, Item item){
         final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_LEFT_ICON);
         dialog.setContentView(R.layout.tambah_bank);
         dialog.setTitle("Edit Bank");
         dialog.setCancelable(true);
+        dialog.setFeatureDrawableResource(Window.FEATURE_LEFT_ICON, R.drawable.ic_border_color_black_18dp);
         dialog.show();
 
  //       Bank bank1 = new Bank();

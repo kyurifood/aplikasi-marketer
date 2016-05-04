@@ -29,11 +29,13 @@
             android:text="0" />
 
         <Button
+            style="@style/Merah"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="cancel" />
 
         <Button
+            style="@style/Hijau"
             android:id="@+id/btn_next2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

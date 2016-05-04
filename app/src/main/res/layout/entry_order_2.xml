@@ -39,6 +39,7 @@
             android:layout_weight="1"/>
 
         <Button
+            style="@style/Hijau"
             android:id="@+id/set_nama"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -61,6 +62,7 @@
             android:layout_weight="1"/>
 
         <Button
+            style="@style/Hijau"
             android:id="@+id/set_no"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -135,7 +137,7 @@
         android:layout_weight="1"/>
 
     <Button
-        style="@style/RedButton"
+        style="@style/Hijau"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="+"
