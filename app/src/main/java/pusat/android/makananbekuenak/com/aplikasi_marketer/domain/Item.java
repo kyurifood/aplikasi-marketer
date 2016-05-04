@@ -9,6 +9,15 @@ public class Item {
     private String rekening;
     private String pemilik;
     private String cabang;
+    private boolean lanjut;
+
+    public boolean isLanjut() {
+        return lanjut;
+    }
+
+    public void setLanjut(boolean lanjut) {
+        this.lanjut = lanjut;
+    }
 
     public String getBank() {
         return bank;

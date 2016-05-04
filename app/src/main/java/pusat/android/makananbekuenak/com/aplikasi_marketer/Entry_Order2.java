@@ -42,8 +42,8 @@ public class Entry_Order2 extends AppCompatActivity  {
     Bank selectedBank;
 
     EditText txt_namacostumer, txt_nocostumer,txt_namapenerima, txtrek, txtpemilik, txtcabang, txt_nopenerima,txt_alamat, txt_kodepos;
-    String get_namacostumer, get_nocostumer, get_namapenerima, get_nopenerima, get_alamat, get_kodepos, get_provinsi, get_kabupaten, get_kecamatan, get_kelurahan;
-    String var_namacostumer, var_nocostumer, var_namapenerima, var_nopenerima, var_alamat, var_kodepos, var_provinsi, var_kabupaten, var_kecamatan, var_kelurahan;
+    String get_namacostumer, get_nocostumer, get_namapenerima, get_nopenerima, get_alamat, get_kodepos, get_provinsi, get_kabupaten, get_kecamatan, get_kelurahan, get_bank;
+    String var_namacostumer, var_nocostumer, var_namapenerima, var_nopenerima, var_alamat, var_kodepos, var_provinsi, var_kabupaten, var_kecamatan, var_kelurahan, var_bank;
 
 
     @Override
@@ -72,11 +72,57 @@ public class Entry_Order2 extends AppCompatActivity  {
         L_Kecamatan = (Spinner) findViewById(R.id.spin_kecamatan);
         L_Kelurahan = (Spinner) findViewById(R.id.spin_kelurahan);
 
+        Bundle b = getIntent().getExtras();
+
+        if (b != null){
+            if (b.containsKey("panggilcustom"))
+                get_namacostumer = b.getString("panggilcustom");
+            if (b.containsKey("panggilnamapenerima"))
+                get_namapenerima = b.getString("panggilnamapenerima");
+            if (b.containsKey("panggilalamat"))
+                get_alamat = b.getString("panggilalamat");
+            if (b.containsKey("panggilkodepos"))
+                get_kodepos = b.getString("panggilkodepos");
+        }
+        txt_namacostumer.setText("" + get_namacostumer);
+        txt_namapenerima.setText("" + get_namapenerima);
+        txt_alamat.setText("" + get_alamat);
+        txt_kodepos.setText("" + get_kodepos);
+
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent panggil = new Intent(getApplicationContext(), Entry_Order3.class);
-                startActivity(panggil);
+
+                String namacostumer = txt_namacostumer.getText().toString();
+                String namapenerima = txt_namapenerima.getText().toString();
+                String alamat = txt_alamat.getText().toString();
+                String kodepos = txt_kodepos.getText().toString();
+
+                if (!validateNamaCostumer(namacostumer)) {
+                    txt_namacostumer.setError("silahkan masukan nama anda");
+                    {
+                        Toast.makeText(Entry_Order2.this, "Kesalahan dalam pengisian nama", Toast.LENGTH_SHORT).show();
+                    }
+
+                } else if (!validateNoCostumer(namapenerima)) {
+                    txt_namapenerima.setError("silahkan masukan Nomor Anda");
+                    {
+                        Toast.makeText(Entry_Order2.this, "Kesalahan dalam pengisian nama penerima", Toast.LENGTH_SHORT).show();
+                    }
+
+                }else if (!validatealamat(alamat)) {
+                    txt_alamat.setError("silahkan masukan alamat");
+                    {
+                        Toast.makeText(Entry_Order2.this, "Kesalahan dalam pengisian alamat", Toast.LENGTH_SHORT).show();
+                    }
+
+                } else if (!validateKode(kodepos)){
+                    txt_kodepos.setError("silahkan masukan kode pos");
+                    {
+                        Toast.makeText(Entry_Order2.this, "Kesalahan dalam pengisian Kode Pos", Toast.LENGTH_SHORT).show();
+                    }
+
+                }else submitForm();
             }
         });
 
@@ -234,6 +280,7 @@ public class Entry_Order2 extends AppCompatActivity  {
         txtcabang = (EditText) dialog.findViewById(R.id.editText3);
         Button simpan = (Button) dialog.findViewById(R.id.ok);
         Button cancel = (Button) dialog.findViewById(R.id.cancel);
+        final Button lanjut = (Button) findViewById(R.id.btn_next2);
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -260,7 +307,9 @@ public class Entry_Order2 extends AppCompatActivity  {
                     } else {
                         adapter.addItem(item);
                     }
+
                     dialog.dismiss();
+                    lanjut.setEnabled(true);
                     Toast.makeText(Entry_Order2.this, "Data Bank Berhasil Ditambahkan", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -314,7 +363,7 @@ public class Entry_Order2 extends AppCompatActivity  {
         simpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!hasError()){
+                if (!hasError()) {
                     Item editItem = new Item();
                     String s = (String) (regional.getSelectedItem());
                     editItem.setBank(s);
@@ -325,43 +374,49 @@ public class Entry_Order2 extends AppCompatActivity  {
                     dialog.cancel();
                     Toast.makeText(Entry_Order2.this, "Update Berhasil", Toast.LENGTH_SHORT).show();
                 }
+
             }
         });
     }
 
     private void submitForm() {
-        // Submit your form here. your form is valid
+
         var_namacostumer = txt_namacostumer.getText().toString();
-        var_nocostumer = txt_nocostumer.getText().toString();
         var_namapenerima = txt_namapenerima.getText().toString();
-        var_nopenerima = txt_nopenerima.getText().toString();
         var_alamat = txt_alamat.getText().toString();
         var_kodepos = txt_kodepos.getText().toString();
         var_provinsi = L_Provinsi.getSelectedItem().toString();
         var_kabupaten = L_Kabupaten.getSelectedItem().toString();
         var_kecamatan = L_Kecamatan.getSelectedItem().toString();
         var_kelurahan = L_Kelurahan.getSelectedItem().toString();
+        var_bank = regional.getSelectedItem().toString();
 
         Intent parsing = null;
         parsing = new Intent(Entry_Order2.this, Entry_Order3.class);
         Bundle bb = new Bundle();
         bb.putString("panggil_namacostumer", var_namacostumer);
-        bb.putString("panggil_nocostumer", var_nocostumer);
         bb.putString("panggil_namapenerima", var_namapenerima);
-        bb.putString("panggil_nopenerima", var_nopenerima);
         bb.putString("panggil_alamat", var_alamat);
         bb.putString("panggil_kodepos", var_kodepos);
         bb.putString("panggil_provinsi", var_provinsi);
         bb.putString("panggil_kabupaten", var_kabupaten);
         bb.putString("panggil_kecamatan", var_kecamatan);
         bb.putString("panggil_kelurahan", var_kelurahan);
+        bb.putString("panggil_bank", var_bank);
         parsing.putExtras(bb);
         startActivity(parsing);
-        Toast.makeText(Entry_Order2.this, "Update Data Pribadi berhasil", Toast.LENGTH_SHORT).show();
     }
 
     public boolean validateNamaCostumer(String namacostumer) {
         return namacostumer.length() > 0;
+    }
+
+    public boolean validateKode(String kodepos) {
+        return kodepos.length() > 0;
+    }
+
+    public boolean validatealamat(String alamat) {
+        return alamat.length() > 0;
     }
 
     public boolean validateNoCostumer(String nocostumer) {
@@ -383,46 +438,6 @@ public class Entry_Order2 extends AppCompatActivity  {
             txtcabang.setError("This field is required");
         }
         return isError;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.btn_next){
-
-            String namacostumer = txt_namacostumer.getText().toString();
-            String nocostumer = txt_nocostumer.getText().toString();
-            String namapenerima = txt_namapenerima.getText().toString();
-            String nopenerima = txt_nopenerima.getText().toString();
-            String alamat = txt_alamat.getText().toString();
-            String kodepos = txt_kodepos.getText().toString();
-
-
-
-            if (!validateNamaCostumer(namacostumer)) {
-                txt_namacostumer.setError("silahkan masukan nama anda");
-                {
-                    Toast.makeText(Entry_Order2.this, "Kesalahan dalam pengisian nama", Toast.LENGTH_SHORT).show();
-                }
-
-            } else if (!validateNoCostumer(nocostumer)) {
-                txt_nocostumer.setError("silahkan masukan Nomor Anda");
-                {
-                    Toast.makeText(Entry_Order2.this, "Kesalahan dalam pengisian Nomor Costumer", Toast.LENGTH_SHORT).show();
-                }
-
-            } else submitForm();
-            return true;
-        }
-
-        if (id == R.id.reset) {
-
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
 }

@@ -275,6 +275,18 @@
         <item name="android:theme">@style/MerahKyurifood</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
->>>>>>> cb078501c6f27f7e1739a602802fbcbcdaf81222
+    </style>
+
+
+    <style name="MerahKurang">
+        <item name="android:theme">@style/MerahKyurifood</item>
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
+
+    <style name="HijauTambah">
+        <item name="android:theme">@style/HijauKyurifood</item>
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
     </style>
 </resources>

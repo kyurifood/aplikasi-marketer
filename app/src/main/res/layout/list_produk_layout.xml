@@ -3,8 +3,8 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="6dip">
-
+    android:padding="6dip"
+    android:background="@drawable/panel_bg">
 
     <TextView
         android:layout_width="wrap_content"
@@ -66,10 +66,9 @@
         android:layout_alignParentEnd="true" />
 
     <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/MerahKurang"
         android:text="-"
+        android:textStyle="bold"
         android:id="@+id/kurang"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
@@ -77,10 +76,9 @@
         android:layout_marginTop="99dp" />
 
     <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/HijauTambah"
         android:text="+"
+        android:textStyle="bold"
         android:id="@+id/tambahproduk"
         android:layout_alignTop="@+id/kurang"
         android:layout_toLeftOf="@+id/kurang"

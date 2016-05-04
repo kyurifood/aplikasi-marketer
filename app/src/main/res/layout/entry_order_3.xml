@@ -333,7 +333,6 @@
             style="@style/GreenButton"
             android:id="@+id/edit_costumer"
             android:layout_width="match_parent"
-            android:onClick="btn_klik"
             android:layout_height="wrap_content"
             android:text="edit"
             android:layout_marginRight="20dp"/>
@@ -447,7 +446,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:enabled="false"
-            android:text="Rp. -> BOLD"
+            android:text="Rp."
+            android:textStyle="bold"
             android:textColor="@color/black"
             android:id="@+id/txt_total"/>
     </LinearLayout>
