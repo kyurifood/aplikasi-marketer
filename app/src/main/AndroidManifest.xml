@@ -17,8 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="pusat.android.makananbekuenak.com.aplikasi_marketer.LoginActivity"
-            android:theme="@style/AppTheme.Dark" />
+            android:name="pusat.android.makananbekuenak.com.aplikasi_marketer.LoginActivity" />
         <activity
             android:name="pusat.android.makananbekuenak.com.aplikasi_marketer.SignupActivity"
             android:theme="@style/AppTheme.Dark" />
