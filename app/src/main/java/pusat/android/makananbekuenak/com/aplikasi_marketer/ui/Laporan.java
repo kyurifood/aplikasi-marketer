@@ -1,4 +1,4 @@
-package pusat.android.makananbekuenak.com.aplikasi_marketer;
+package pusat.android.makananbekuenak.com.aplikasi_marketer.ui;
 
 
 
@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import pusat.android.makananbekuenak.com.aplikasi_marketer.R;
 
 public class Laporan extends AppCompatActivity {
 

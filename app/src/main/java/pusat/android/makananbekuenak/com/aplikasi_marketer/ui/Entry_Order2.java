@@ -1,12 +1,10 @@
-package pusat.android.makananbekuenak.com.aplikasi_marketer;
+package pusat.android.makananbekuenak.com.aplikasi_marketer.ui;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -18,10 +16,10 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.List;
 
+import pusat.android.makananbekuenak.com.aplikasi_marketer.R;
 import pusat.android.makananbekuenak.com.aplikasi_marketer.adapter.ListItem;
 import pusat.android.makananbekuenak.com.aplikasi_marketer.domain.Bank;
 import pusat.android.makananbekuenak.com.aplikasi_marketer.domain.Item;

@@ -15,7 +15,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import pusat.android.makananbekuenak.com.aplikasi_marketer.Entry_Order;
+import pusat.android.makananbekuenak.com.aplikasi_marketer.ui.Entry_Order;
 import pusat.android.makananbekuenak.com.aplikasi_marketer.R;
 import pusat.android.makananbekuenak.com.aplikasi_marketer.domain.ItemEntry_Order;
 

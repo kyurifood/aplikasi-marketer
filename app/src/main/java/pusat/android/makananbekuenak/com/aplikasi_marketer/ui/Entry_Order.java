@@ -1,14 +1,12 @@
-package pusat.android.makananbekuenak.com.aplikasi_marketer;
+package pusat.android.makananbekuenak.com.aplikasi_marketer.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -16,15 +14,15 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import pusat.android.makananbekuenak.com.aplikasi_marketer.R;
 import pusat.android.makananbekuenak.com.aplikasi_marketer.adapter.List_item_order;
-import pusat.android.makananbekuenak.com.aplikasi_marketer.domain.Item;
 import pusat.android.makananbekuenak.com.aplikasi_marketer.domain.ItemEntry_Order;
 
 public class Entry_Order extends AppCompatActivity {
 
     int tot = 0;
 
-    Button btn_next;
+    Button btn_next, btn_cancel;
 
     private String[] Regional_L = { "Sulawesi", "Jawa", "Sumatera"};
 
@@ -43,6 +41,7 @@ public class Entry_Order extends AppCompatActivity {
         setContentView(R.layout.entry_order);
 
         btn_next = (Button)findViewById(R.id.btn_next);
+        btn_cancel = (Button) findViewById(R.id.cancel);
 
         getSupportActionBar().setTitle("ENTRI PESANAN");
 
@@ -207,13 +206,20 @@ public class Entry_Order extends AppCompatActivity {
             }
         });
 
-        btn_next = (Button) findViewById(R.id.btn_next);
         btn_next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
 
                 Intent myIntent = new Intent(Entry_Order.this,
                         Entry_Order2.class);
                 startActivity(myIntent);
+            }
+        });
+
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent panggil = new Intent(getApplicationContext(), Entry_Order.class);
+                startActivity(panggil);
             }
         });
 
@@ -260,4 +266,11 @@ public class Entry_Order extends AppCompatActivity {
         tot  -= item.getSatuan();
         total.setText("Rp." + String.valueOf(tot));
     }
+
+    @Override
+    public void onBackPressed() {
+        // Disable going back to the MainActivity
+        moveTaskToBack(true);
+    }
+
 }

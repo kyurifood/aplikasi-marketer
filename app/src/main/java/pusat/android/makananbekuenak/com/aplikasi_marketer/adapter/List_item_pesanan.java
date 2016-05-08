@@ -4,20 +4,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
 
-import pusat.android.makananbekuenak.com.aplikasi_marketer.Lihatdetail;
-import pusat.android.makananbekuenak.com.aplikasi_marketer.MainActivity;
+import pusat.android.makananbekuenak.com.aplikasi_marketer.ui.Lihatdetail;
 import pusat.android.makananbekuenak.com.aplikasi_marketer.R;
 import pusat.android.makananbekuenak.com.aplikasi_marketer.domain.Item_pesanan;
 

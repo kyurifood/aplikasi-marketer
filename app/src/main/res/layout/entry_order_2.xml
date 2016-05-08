@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".ui.MainActivity"
     android:weightSum="1">
 
 
@@ -144,9 +144,7 @@
         android:id="@+id/btnbank" />
 
     <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbarSize="3dp"
+        style="@style/LayoutMatchParent"
         android:layout_gravity="center"
         android:divider="@android:color/transparent"
         android:id="@+id/lv_item" />

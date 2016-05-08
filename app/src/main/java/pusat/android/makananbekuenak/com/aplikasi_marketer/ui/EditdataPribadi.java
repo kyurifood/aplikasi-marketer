@@ -1,4 +1,4 @@
-package pusat.android.makananbekuenak.com.aplikasi_marketer;
+package pusat.android.makananbekuenak.com.aplikasi_marketer.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,8 +24,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import pusat.android.makananbekuenak.com.aplikasi_marketer.adapter.ListItem;
-import pusat.android.makananbekuenak.com.aplikasi_marketer.EditdataPribadi.OnSpinnerItemClicked;
+import pusat.android.makananbekuenak.com.aplikasi_marketer.R;
 import pusat.android.makananbekuenak.com.aplikasi_marketer.adapter.ListItem;
 import pusat.android.makananbekuenak.com.aplikasi_marketer.domain.Item;
 

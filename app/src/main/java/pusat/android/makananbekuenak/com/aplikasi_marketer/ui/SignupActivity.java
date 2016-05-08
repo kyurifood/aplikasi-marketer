@@ -1,4 +1,4 @@
-package pusat.android.makananbekuenak.com.aplikasi_marketer;
+package pusat.android.makananbekuenak.com.aplikasi_marketer.ui;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import pusat.android.makananbekuenak.com.aplikasi_marketer.R;
 
 public class SignupActivity extends AppCompatActivity {
     private static final String TAG = "SignupActivity";

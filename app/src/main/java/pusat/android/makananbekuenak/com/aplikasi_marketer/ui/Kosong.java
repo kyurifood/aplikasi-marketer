@@ -1,7 +1,9 @@
-package pusat.android.makananbekuenak.com.aplikasi_marketer;
+package pusat.android.makananbekuenak.com.aplikasi_marketer.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import pusat.android.makananbekuenak.com.aplikasi_marketer.R;
 
 /**
  * Created by rnl on 4/22/16.
