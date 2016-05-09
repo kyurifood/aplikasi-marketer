@@ -2,7 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="@drawable/bgkyuri">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@drawable/poot"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:foregroundGravity="top"/>
+
 
 
     <ProgressBar
@@ -14,4 +25,4 @@
         android:layout_gravity="center_horizontal"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"/>
-</RelativeLayout>
+    </RelativeLayout>
