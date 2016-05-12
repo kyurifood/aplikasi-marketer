@@ -26,11 +26,29 @@ public class ProdukItemDetails {
 	public void setImageNumber(int imageNumber) {
 		this.imageNumber = imageNumber;
 	}
-	
+
+	public String getS_regional() {
+		return s_regional;
+	}
+
+	public void setS_regional(String s_regional) {
+		this.s_regional = s_regional;
+	}
+
+	public String getS_distributor() {
+		return s_distributor;
+	}
+
+	public void setS_distributor(String s_distributor) {
+		this.s_distributor = s_distributor;
+	}
+
 	private String name ;
 	private String itemDescription;
 	private String price;
 	private int imageNumber;
+	private String s_regional;
+	private String s_distributor;
 
 	
 }

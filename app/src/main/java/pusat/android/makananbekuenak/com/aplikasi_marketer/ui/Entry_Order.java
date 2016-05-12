@@ -51,6 +51,7 @@ public class Entry_Order extends AppCompatActivity {
 
         sp_regional = (Spinner) findViewById(R.id.spinner_regional);
         sp_distributor = (Spinner) findViewById(R.id.spinner_distributor);
+
         List<ItemEntry_Order> items = new ArrayList<>();
         ItemEntry_Order item1 = new ItemEntry_Order();
         item1.setKode("001");

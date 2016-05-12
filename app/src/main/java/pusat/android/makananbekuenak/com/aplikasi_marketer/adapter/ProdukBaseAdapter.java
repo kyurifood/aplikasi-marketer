@@ -1,20 +1,24 @@
 package pusat.android.makananbekuenak.com.aplikasi_marketer.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import pusat.android.makananbekuenak.com.aplikasi_marketer.R;
 import pusat.android.makananbekuenak.com.aplikasi_marketer.domain.ProdukItemDetails;
 
-public class ProdukBaseAdapter extends BaseAdapter {
-	private static ArrayList<ProdukItemDetails> produkList;
+public class ProdukBaseAdapter extends BaseAdapter implements Filterable{
+
 	
 	private Integer[] imgid = {
 			R.drawable.produk,
@@ -26,18 +30,23 @@ public class ProdukBaseAdapter extends BaseAdapter {
 			R.drawable.produk
 			};
 
+
 	public LayoutInflater l_Inflater;
 
 	public Context context;
+	private List<ProdukItemDetails> items;
+	private static List<ProdukItemDetails> produkList;
 
 	public ProdukBaseAdapter(Context context, ArrayList<ProdukItemDetails> results) {
 		produkList = results;
 		l_Inflater = LayoutInflater.from(context);
 		this.context = context;
+		this.items = results;
 	}
 
 	public int getCount() {
-		return produkList.size();
+		if(produkList==null)return 0;
+		else return produkList.size();
 	}
 
 	public Object getItem(int position) {
@@ -75,5 +84,40 @@ public class ProdukBaseAdapter extends BaseAdapter {
 		TextView txt_itemDescription;
 		TextView txt_itemPrice;
 		ImageView itemImage;
+	}
+
+	@Override
+	public Filter getFilter() {
+		return new Filter() {
+			@Override
+			protected FilterResults performFiltering(CharSequence constraint) {
+				FilterResults filterResults = new FilterResults();
+				if(constraint!=null||constraint.length()>0){
+					Log.i("const:", constraint.toString());
+					ArrayList<ProdukItemDetails> result = new ArrayList<>();
+					String strSearch = constraint.toString().toUpperCase();
+					for (ProdukItemDetails o : items){
+						Log.i("const:", strSearch);
+						Log.i("data:", o.getS_regional().toUpperCase());
+						if(o.getS_regional().toUpperCase().contains(strSearch))
+							result.add(o);
+						else if(o.getS_distributor().toUpperCase().contains(strSearch))
+							result.add(o);
+					}
+
+					filterResults.count=result.size();
+					filterResults.values=result;
+
+				}
+
+				return filterResults;
+			}
+
+			@Override
+			protected void publishResults(CharSequence constraint, FilterResults results) {
+				produkList = (ArrayList<ProdukItemDetails>) results.values;
+				notifyDataSetChanged();
+			}
+		};
 	}
 }
