@@ -21,6 +21,42 @@ public class Item_pesanan {
     private String produk;
     private String ongkir;
     private String pajak;
+    private String pengirim;
+    private String nmPenerima;
+    private String tglTerima;
+    private String resi;
+
+    public String getResi() {
+        return resi;
+    }
+
+    public void setResi(String resi) {
+        this.resi = resi;
+    }
+
+    public String getPengirim() {
+        return pengirim;
+    }
+
+    public void setPengirim(String pengirim) {
+        this.pengirim = pengirim;
+    }
+
+    public String getNmPenerima() {
+        return nmPenerima;
+    }
+
+    public void setNmPenerima(String nmPenerima) {
+        this.nmPenerima = nmPenerima;
+    }
+
+    public String getTglTerima() {
+        return tglTerima;
+    }
+
+    public void setTglTerima(String tglTerima) {
+        this.tglTerima = tglTerima;
+    }
 
     public String getRegional() {
         return regional;

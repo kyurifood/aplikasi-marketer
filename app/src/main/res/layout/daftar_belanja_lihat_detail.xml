@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/putih">
+    android:background="@drawable/rounded_snape">
 
     <TextView
         android:layout_height="wrap_content"
@@ -122,5 +122,8 @@
 
     </LinearLayout>
 
+    <View
+        style="@style/HorizontalDivider"
+        android:layout_marginTop="10dp"/>
 
 </LinearLayout>

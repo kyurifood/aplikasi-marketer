@@ -1,116 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="pusat.android.makananbekuenak.com.aplikasi_marketer" >
+    package="pusat.android.makananbekuenak.com.aplikasi_marketer">
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/CustomActionBarTheme" >
-
+        android:theme="@style/CustomActionBarTheme">
         <activity
             android:name=".ui.SplashScreen"
             android:theme="@style/CustomActionBarTheme">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.HomeScreen"/>
-        <activity
-            android:name=".ui.LoginActivity" />
+        <activity android:name=".ui.HomeScreen" />
+        <activity android:name=".ui.LoginActivity" />
         <activity
             android:name=".ui.SignupActivity"
             android:theme="@style/AppTheme.Dark" />
-
-        <activity android:name=".ui.Entry_Order"
+        <activity
+            android:name=".ui.Entry_Order"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="adjustPan|adjustResize"
             android:exported="true"
-            android:parentActivityName=".ui.Pesanan">
-            <!--Coding Kembali Ke Menu Utama-->
+            android:parentActivityName=".ui.Pesanan"
+            android:windowSoftInputMode="adjustPan|adjustResize">
+
+            <!-- Coding Kembali Ke Menu Utama -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.Pesanan" />
-            <!-- END Coding Kembali Ke Menu Utama-->
+            <!-- END Coding Kembali Ke Menu Utama -->
         </activity>
-
+        <activity android:name=".ui.RegistrasiMarketer"></activity>
+        <activity android:name=".ui.Pengaturan" />
+        <activity android:name=".ui.Laporan" />
         <activity
-            android:name=".ui.RegistrasiMarketer">
-        </activity>
-
-        <activity android:name=".ui.Pengaturan"/>
-
-        <activity android:name=".ui.Laporan"/>
-
-        <activity android:name=".ui.Entry_Order2"
+            android:name=".ui.Entry_Order2"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="adjustPan|adjustResize"
-            android:parentActivityName=".ui.Entry_Order">
-            <!--Coding Kembali Ke Menu Utama-->
+            android:parentActivityName=".ui.Entry_Order"
+            android:windowSoftInputMode="adjustPan|adjustResize">
+
+            <!-- Coding Kembali Ke Menu Utama -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.Entry_Order" />
-            <!-- END Coding Kembali Ke Menu Utama-->
+            <!-- END Coding Kembali Ke Menu Utama -->
         </activity>
-        <activity android:name=".ui.Entry_Order3"
+        <activity
+            android:name=".ui.Entry_Order3"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="adjustPan|adjustResize"
-            android:parentActivityName=".ui.Entry_Order2">
-            <!--Coding Kembali Ke Menu Utama-->
+            android:parentActivityName=".ui.Entry_Order2"
+            android:windowSoftInputMode="adjustPan|adjustResize">
+
+            <!-- Coding Kembali Ke Menu Utama -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.Entry_Order2" />
-            <!-- END Coding Kembali Ke Menu Utama-->
+            <!-- END Coding Kembali Ke Menu Utama -->
         </activity>
         <activity
             android:name=".ui.MainActivity"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="adjustPan|adjustResize"
             android:exported="true"
-            android:parentActivityName=".ui.Pesanan">
-            <!--Coding Kembali Ke Menu Utama-->
+            android:parentActivityName=".ui.Pesanan"
+            android:windowSoftInputMode="adjustPan|adjustResize">
+
+            <!-- Coding Kembali Ke Menu Utama -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.Pesanan" />
-            <!-- END Coding Kembali Ke Menu Utama-->
+            <!-- END Coding Kembali Ke Menu Utama -->
         </activity>
-        <activity android:name=".ui.Pesanan"/>
-
-        <activity android:name=".ui.TampilanPribadi"
+        <activity android:name=".ui.Pesanan" />
+        <activity
+            android:name=".ui.TampilanPribadi"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="adjustPan|adjustResize"
             android:exported="true"
-            android:parentActivityName=".ui.Pengaturan">
-            <!--Coding Kembali Ke Menu Utama-->
+            android:parentActivityName=".ui.Pengaturan"
+            android:windowSoftInputMode="adjustPan|adjustResize">
+
+            <!-- Coding Kembali Ke Menu Utama -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.Pengaturan" />
-            <!-- END Coding Kembali Ke Menu Utama-->
+            <!-- END Coding Kembali Ke Menu Utama -->
         </activity>
-
-
-        <activity android:name=".ui.Lihatdetail"
+        <activity
+            android:name=".ui.Details"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="adjustPan|adjustResize"
-            android:parentActivityName=".ui.MainActivity">
-            <!--Coding Kembali Ke Menu Utama-->
+            android:parentActivityName=".ui.MainActivity"
+            android:windowSoftInputMode="adjustPan|adjustResize">
+
+            <!-- Coding Kembali Ke Menu Utama -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.MainActivity" />
-            <!-- END Coding Kembali Ke Menu Utama-->
+            <!-- END Coding Kembali Ke Menu Utama -->
         </activity>
-        <activity android:name=".ui.Produk"/>
-        <activity android:name=".ui.EditdataPribadi"
+        <activity android:name=".ui.Produk" />
+        <activity
+            android:name=".ui.EditdataPribadi"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="adjustPan|adjustResize"
-            android:parentActivityName=".ui.TampilanPribadi">
-            <!--Coding Kembali Ke Menu Utama-->
+            android:parentActivityName=".ui.TampilanPribadi"
+            android:windowSoftInputMode="adjustPan|adjustResize">
+
+            <!-- Coding Kembali Ke Menu Utama -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.TampilanPribadi" />
-            <!-- END Coding Kembali Ke Menu Utama-->
+            <!-- END Coding Kembali Ke Menu Utama -->
         </activity>
     </application>
 

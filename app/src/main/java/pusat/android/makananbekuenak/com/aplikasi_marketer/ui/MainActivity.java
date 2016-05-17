@@ -39,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
         item1.setOngkir("12.000");
         item1.setPajak("10.000");
         item1.setNominal("20000");
+        item1.setResi("87832444509");
+        item1.setTglTerima("April,4 2016");
+        item1.setPengirim("TIKI");
 
 
         Item_pesanan item2 = new Item_pesanan();
@@ -56,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
         item2.setOngkir("13.000");
         item2.setPajak("12.000");
         item2.setNominal("26000");
+        item2.setResi("01234567890");
+        item2.setTglTerima("Maret,10 2016");
+        item2.setPengirim("JNE");
 
         Item_pesanan item3 = new Item_pesanan();
         item3.setNo_order("003");
@@ -72,6 +78,9 @@ public class MainActivity extends AppCompatActivity {
         item3.setOngkir("10.000");
         item3.setPajak("9.000");
         item3.setNominal("32000");
+        item3.setResi("76343487784");
+        item3.setTglTerima("Juni,15 2016");
+        item3.setPengirim("TIKI");
 
         items.add(item1);
         items.add(item2);

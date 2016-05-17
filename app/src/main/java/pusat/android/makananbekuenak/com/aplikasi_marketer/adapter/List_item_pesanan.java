@@ -14,9 +14,9 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import pusat.android.makananbekuenak.com.aplikasi_marketer.ui.Lihatdetail;
 import pusat.android.makananbekuenak.com.aplikasi_marketer.R;
 import pusat.android.makananbekuenak.com.aplikasi_marketer.domain.Item_pesanan;
+import pusat.android.makananbekuenak.com.aplikasi_marketer.ui.Details;
 
 /**
  * Created by opaw on 3/30/16.
@@ -25,7 +25,7 @@ import pusat.android.makananbekuenak.com.aplikasi_marketer.domain.Item_pesanan;
 public class List_item_pesanan extends BaseAdapter {
 
     String var_nama, var_tanggal, var_kode, var_bank, var_nominal, var_regional, var_distributor, var_marketer,
-            var_costomer, var_nohp, var_alamatpenerima, var_produk, var_ongkir, var_pajak;
+            var_costomer, var_nohp, var_alamatpenerima, var_produk, var_ongkir, var_pajak, var_resi, var_pengirim, var_tgl;
 
     public Context context;
     private List<Item_pesanan> items;
@@ -100,10 +100,12 @@ public class List_item_pesanan extends BaseAdapter {
                 var_produk = String.valueOf(item.getProduk());
                 var_ongkir = String.valueOf(item.getOngkir());
                 var_pajak = String.valueOf(item.getPajak());
-
+                var_tgl = String.valueOf(item.getTglTerima());
+                var_resi = String.valueOf(item.getResi());
+                var_pengirim = String.valueOf(item.getPengirim());
 
                 Intent i = null;
-                i = new Intent(context, Lihatdetail.class);
+                i = new Intent(context, Details.class);
                 Bundle b = new Bundle();
 
                 b.putString("panggil_nama", var_nama);
@@ -120,6 +122,9 @@ public class List_item_pesanan extends BaseAdapter {
                 b.putString("panggil_produk", var_produk);
                 b.putString("panggil_ongkir", var_ongkir);
                 b.putString("panggil_pajak", var_pajak);
+                b.putString("panggil_resi", var_resi);
+                b.putString("panggil_tgl", var_tgl);
+                b.putString("panggil_pengirim", var_pengirim);
                 i.putExtras(b);
                 context.startActivity(i);
             }
